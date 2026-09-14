@@ -16,6 +16,8 @@
  "assumptions":["共享地图比例与多个局部视角的近似"]}
 
 每个输入candidate.id必须恰好出现在一个building.source_ids或rejected.source_id里。不同裁片重复同一栋合并source_ids。新增实例source_ids=[]并evidence写newly_observed以及可见证据。保留实例在source里是整图0..1000坐标。source_footprint必须凸四边形，按环绕顺序；全部视为假设，不假装实测墙脚。
+去重合并不等于拒绝：两个候选都并入一栋时，把两个ID只写入该栋source_ids，绝不能再在rejected里写“已合并/仅作去重说明”。rejected只记录没有分配给任何地基的候选。输出前逐一核对全部输入ID，既不能遗漏，也不能同时保留和拒绝。
+永久亭阁/敞轩具有独立地基或固定桩基时归house并保留subtype；没有封闭墙不是other的充分理由。临时棚、桥、连廊和围挡按其自身支承证据归other。
 plan_center/plan_size为1000共享平面单位，非米。front_clock为建筑正面朝向：12向上、3向右、6向下、9向左；plan_size[0]始终是正立面宽度，第二项为进深。渲染器自动把四角旋转，不要用屋脊方向代替正面方向。两层屋的plan_size不得因层数而加倍。大殿、长条厢房、塔、亭应有各自合理比例，平面矩形允许基本假设；连廊可以长条，独立房屋不要拉成长板。
 尽量把建筑落在同名支承zone.plan_polygon范围内，允许极小误差；不得为了装下错误合并而把房子扩大到整院。多建筑院落保留院心空地。不要改动输入terrain；若明显矛盾写assumptions待下一轮统一修正。
 

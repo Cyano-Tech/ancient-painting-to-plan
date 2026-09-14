@@ -15,7 +15,25 @@ from scripts.replay_examples import empty_output
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXAMPLE = ROOT / "examples/foundation2d"
+EXAMPLE = ROOT / "tests/fixtures/foundation2d"
+
+
+def test_showcase_contains_only_ten_distinct_4k_pngs():
+    """The public-facing showcase is PNG-only; replay data lives in fixtures."""
+    from PIL import Image
+
+    sources = json.loads((ROOT / "docs/example_sources.json").read_text())["examples"]
+    assert len(sources) == len({row["met_object_id"] for row in sources}) == 10
+    expected = {f"{row['sequence']:02}_{row['slug']}.png" for row in sources}
+    entries = list((ROOT / "examples").iterdir())
+    assert {p.name for p in entries} == expected
+    assert all(p.is_file() and not p.is_symlink() for p in entries)
+    assert len({hashlib.sha256(p.read_bytes()).hexdigest() for p in entries}) == 10
+    for path in entries:
+        with Image.open(path) as image:
+            assert image.format == "PNG"
+            assert image.size == (3840, 2160)
+            image.verify()
 
 
 def test_cannot_overwrite_user_output(tmp_path):

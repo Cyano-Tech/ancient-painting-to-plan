@@ -323,6 +323,8 @@ def run(args):
     if not isinstance(answer, str):
         answer = json.dumps(answer, ensure_ascii=False)
     parsed, issues = parse_answer(answer)
+    normalizations = []
+    parsed_raw = parsed
     if args.stage == "inventory" and parsed is not None:
         issues += validate_inventory(parsed)
     elif args.stage in {"review", "structure", "audit"} and parsed is not None:
@@ -334,8 +336,9 @@ def run(args):
 
         issues += validate_ground_stage(args.stage, parsed, context)
     elif args.stage.startswith("plan_") and parsed is not None:
-        from .plan_schema import validate_plan_stage
+        from .plan_schema import normalize_plan_envelope, validate_plan_stage
 
+        parsed, normalizations = normalize_plan_envelope(args.stage, parsed, context or {})
         issues += validate_plan_stage(args.stage, parsed, context or {})
     returned_model = raw.get("model", "")
     if not model_matches(model, returned_model):
@@ -360,13 +363,17 @@ def run(args):
         "vision_accuracy_verified": False,
         "coverage_verified": False,
     }
+    if normalizations:
+        result["parsed_raw"] = parsed_raw
+        result["metadata_normalizations"] = normalizations
     (out / "result.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     (out / "answer.md").write_text(answer + "\n", encoding="utf-8")
     print(
         json.dumps(
-            {k: v for k, v in result.items() if k not in {"answer", "parsed"}}, ensure_ascii=False
+            {k: v for k, v in result.items() if k not in {"answer", "parsed", "parsed_raw"}},
+            ensure_ascii=False,
         ),
         flush=True,
     )

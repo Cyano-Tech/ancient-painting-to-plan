@@ -5,7 +5,7 @@
 这条路线最初用于三个局部古画场景。当前发布版将其中的通用算法和示例先验分开：
 代码不再根据示例文件名选择手写房屋，也不会在检测缺失时回退到人工房屋坐标。
 示例的相机、山地、水域、树丛、遮挡关系仍是人为给定的研究先验，位于
-[`scene_priors.json`](../examples/cuboid3d/scene_priors.json)。把先验放进数据文件不等于自动识别了它们。
+[`scene_priors.json`](../tests/fixtures/cuboid3d/scene_priors.json)。把先验放进数据文件不等于自动识别了它们。
 
 ## 算法步骤
 
@@ -31,10 +31,10 @@
 
 ```bash
 python -m ancientplan.cuboid3d.pipeline \
-  --input-dir examples/cuboid3d/inputs \
-  --scene-config examples/cuboid3d/scene_priors.json \
-  --detections-dir examples/cuboid3d/house_detection \
-  --orientations-dir examples/cuboid3d/building_orientation \
+  --input-dir tests/fixtures/cuboid3d/inputs \
+  --scene-config tests/fixtures/cuboid3d/scene_priors.json \
+  --detections-dir tests/fixtures/cuboid3d/house_detection \
+  --orientations-dir tests/fixtures/cuboid3d/building_orientation \
   --output-dir artifacts/cuboids
 python -m ancientplan.cuboid3d.validate_outputs artifacts/cuboids
 ```

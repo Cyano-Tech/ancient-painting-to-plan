@@ -2,13 +2,17 @@
 
 ## 示例画作
 
+当前展示目录的十张 2D PNG 对应十件不同馆藏作品，原作来源和完整作者限定词见
+[2D 图集来源表](EXAMPLES_2D.md) 和 [结构化出处](example_sources.json)。
+下文 A/B 输入属于保留的历史回归夹具，不再是当前 `examples/` 图集。
+
 ### B：Village and Temples in Jiangnan
 
 无名氏，明代，15 世纪早期；《樓閣江帆圖》團扇。The Metropolitan Museum of Art，藏品号 **1989.363.43**，
 馆方标注 Public Domain；credit line 为 Bequest of John M. Crawford Jr., 1988。
 依据：[馆藏原页面](https://www.metmuseum.org/art/collection/search/45665)。
 
-仓库 `examples/foundation2d/source.jpg` 是项目已有下载文件，3946 × 3716，SHA-256
+仓库 `tests/fixtures/foundation2d/source.jpg` 是项目已有下载文件，3946 × 3716，SHA-256
 `68a345255caf9336f305bc8649b1be8836c1ca9bd7aa759ff9e370258dbb2b59`。
 标注、地基、H14 修订示例都是研究生成的解释，不是馆方标注，也不代表馆方认可。
 

@@ -1,0 +1,17 @@
+{
+  "institution": "The Metropolitan Museum of Art",
+  "verified_date_utc": "2026-09-14",
+  "note": "Chinese card titles are presentation themes. Some supplied files are details of longer handscrolls, not entire works. No artist inference from filenames.",
+  "examples": [
+    {"sequence": 1, "slug": "cassia_studio", "met_object_id": 44601, "official_title": "The Cassia Grove Studio", "artist": "Wen Zhengming", "date": "ca. 1532", "credit": "文徵明 · 约1532年  /  The Met · 1989.303 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 2, "slug": "willow_pavilion", "met_object_id": 53601, "official_title": "Landscape with Pavilion and Willows", "artist": "Attributed to Shen Zhou", "date": "Ming or Qing dynasty", "credit": "传沈周 · 明或清  /  The Met · 69.131.10 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 3, "slug": "river_village", "met_object_id": 53603, "official_title": "Landscape with Sailboats", "artist": "Attributed to Shen Zhou", "date": "Ming or Qing dynasty", "credit": "传沈周 · 明或清  /  The Met · 69.131.12 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 4, "slug": "stream_bridge", "met_object_id": 53602, "official_title": "Landscape with Man Crossing Bridge", "artist": "Attributed to Shen Zhou", "date": "Ming or Qing dynasty", "credit": "传沈周 · 明或清  /  The Met · 69.131.11 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 5, "slug": "lakeshore_pavilion", "met_object_id": 48884, "official_title": "Pavilion by Lake Shore", "artist": "Unidentified artist, after Wen Jia", "date": "17th century or later", "credit": "佚名 · 仿文嘉 · 17世纪或更晚  /  The Met · 13.100.67 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 6, "slug": "garden_estate", "met_object_id": 51575, "official_title": "Garden estate", "artist": "Unidentified artist, fake signature of Liu Songnian", "date": "17th century", "credit": "佚名 · 17世纪 · 画作选段  /  The Met · 29.160.30 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 7, "slug": "orchid_pavilion", "met_object_id": 51394, "official_title": "Gathering at the Orchid Pavilion", "artist": "Unidentified artist, formerly attributed to Li Gonglin", "date": "16th century", "credit": "佚名 · 16世纪  /  The Met · 13.100.108 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 8, "slug": "yueyang_pavilion", "met_object_id": 45677, "official_title": "The Immortal Lü Dongbin Appearing over the Yueyang Pavilion", "artist": "Unidentified artist", "date": "15th–16th century", "credit": "佚名 · 15—16世纪  /  The Met · 47.18.41 · Public Domain", "rights": "Public Domain"},
+    {"sequence": 9, "slug": "autumn_temples", "met_object_id": 40106, "official_title": "Buddhist Temples amid Autumn Mountains", "artist": "Unidentified artist, after Yan Wengui", "date": "14th–15th century", "credit": "佚名 · 仿燕文贵 · 画作选段  /  The Met · Public Domain", "rights": "Public Domain"},
+    {"sequence": 10, "slug": "snowy_retreat", "met_object_id": 40987, "official_title": "Snowy landscape with rustic riverside retreat", "artist": "Attributed to Liu Songnian; traditionally attributed to Gao Keming", "date": "ca. late 12th century", "credit": "传刘松年 · 约12世纪末 · 画作选段  /  The Met · 1984.274 · Public Domain", "rights": "Public Domain"}
+  ]
+}

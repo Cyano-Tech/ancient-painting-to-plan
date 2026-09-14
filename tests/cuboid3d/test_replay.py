@@ -10,7 +10,7 @@ from PIL import Image
 from ancientplan.cuboid3d import pipeline as p
 
 
-EXAMPLE = Path(__file__).resolve().parents[2] / "examples" / "cuboid3d"
+EXAMPLE = Path(__file__).resolve().parents[2] / "tests" / "fixtures" / "cuboid3d"
 SCENE = "scene_01_compound"
 
 

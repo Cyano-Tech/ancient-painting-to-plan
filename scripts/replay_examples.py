@@ -130,7 +130,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("method", choices=("cuboid3d", "foundation2d", "all"))
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--examples", type=Path, default=REPOSITORY / "examples")
+    parser.add_argument(
+        "--fixtures",
+        "--examples",
+        dest="examples",
+        type=Path,
+        default=REPOSITORY / "tests" / "fixtures",
+        help="offline replay fixtures (not the PNG-only showcase)",
+    )
     parser.add_argument(
         "--svg-only", action="store_true", help="skip optional CairoSVG PNG export for foundation2d"
     )

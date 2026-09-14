@@ -6,7 +6,7 @@
 这是实验性研究代码，不是测绘工具或经过独立标注集验证的自动识别产品。
 输出包含遮挡补全、朝向和尺度假设；“测试通过”不代表画中所有对象都识别正确。
 
-![原画对应与地基俯视示例](examples/foundation2d/preview/overview.png)
+![原画对应与地基俯视示例](examples/01_cassia_studio.png)
 
 ## 两种方法是什么
 
@@ -25,9 +25,13 @@
 
 ## 先看结果
 
-- A：[三场景对照](examples/cuboid3d/preview/all_scenes_comparison.png)、[第一场景俯视](examples/cuboid3d/preview/scene_01_compound/top_view.png)、[GLB](examples/cuboid3d/preview/scene_01_compound/scene.glb)。缓存实例数为 4 / 2 / 2。
-- B：[完整对照](examples/foundation2d/preview/overview.png)、[俯视图](examples/foundation2d/preview/topview.png)、[交互页面](examples/foundation2d/preview/index.html)、[H14 身份修订案例](examples/foundation2d/H14_comparison.png)。HTML 下载后本地打开；GitHub 文件页不直接执行 HTML。
-- B 当前有 **23 个占地区域**：20 个 `house` 区域、3 个 `other` 区域。其中 H02/H07/H21 是未拆清的组团，不等于精确栋数；H29 只显示未定候选，不生成地基。H13/H14 已分别按栏墙结构/倒影排除。
+[examples/](examples/) 只保留 **10 张 3840 × 2160 的 2D PNG**：十幅不同画作的输入与相对地基俯视对照。
+没有 PPT、3D 预览或中间结果。图集目录、原作署名和解读说明见 [2D 图集](docs/EXAMPLES_2D.md)。
+
+两套方法的代码及离线回放仍然保留。旧输入/缓存移至 [tests/fixtures/](tests/fixtures/)，
+旧预览可从 [v0.1.0 历史版本](https://github.com/Cyano-Tech/ancient-painting-to-plan/tree/v0.1.0/examples) 找回。
+B 的旧回归快照仍为 23 个占地区域（20 house / 3 other，含 3 个未拆清组团）及 1 个未定候选；
+这个旧快照的计数不适用于新图集。
 
 ## 五分钟离线复现
 
@@ -66,8 +70,9 @@ PNG 需要系统 Cairo 库和中文字体；Ubuntu/Debian 可安装 `libcairo2 f
 src/ancientplan/
   cuboid3d/           体块推断、GLB、缓存校验、可选历史推理脚本
   foundation2d/      云端请求、schema、身份/形状复核、布局、SVG/HTML
-examples/            输入、脱敏缓存、可复现计划、精选结果
+examples/            仅 10 张 4K 2D 对照 PNG
 tests/               离线单元测试、反例和固定案例回归
+  fixtures/          两套方法的旧输入与脱敏缓存（非展示图集）
 scripts/             回放、发布检查工具
 docs/                方法、数据、复现、来源和项目介绍
 ```
@@ -83,7 +88,8 @@ docs/                方法、数据、复现、来源和项目介绍
 Two experimental, auditable routes from historical landscape paintings to **relative ground layouts**:
 (A) cached building detection and a separate long-axis orientation pass, followed by coarse cuboids and GLB export;
 (B) cloud multimodal scene analysis, occlusion/identity review, foundation hypotheses and a direct 2D plan.
-Both curated examples replay entirely on CPU without credentials. The 3D examples use explicit manual camera/terrain priors;
-the 2D example is not a metric survey, and uncertain groups are not exact building counts.
+Both historical fixtures replay entirely on CPU without credentials. The 3D fixtures use explicit manual camera/terrain priors.
+The showcase contains only ten 4K 2D comparison PNGs, generated from distinct painting inputs using cloud Qwen 3.8 and CPU rendering.
+These are non-metric hypotheses, and uncertain groups are not exact building counts.
 The two routes use different example images and do not constitute a head-to-head benchmark.
 See the method guides and reproduction limits before making accuracy or licensing claims.

@@ -31,7 +31,7 @@ cp config.example.json config.local.json
 # 密钥文件应保存在仓库外，且权限为 600；不要把密钥填进 JSON 或命令行。
 export ANCIENTPLAN_CONFIG="$PWD/config.local.json"
 export ANCIENTPLAN_RUNS_DIR="$PWD/artifacts/runs"
-python -m ancientplan.foundation2d.qwen_cloud smoke --image examples/foundation2d/source.jpg
+python -m ancientplan.foundation2d.qwen_cloud smoke --image tests/fixtures/foundation2d/source.jpg
 ```
 
 密钥文件格式为一行 `DASHSCOPE_API_KEY='YOUR_KEY'`，可带 `export` 前缀。

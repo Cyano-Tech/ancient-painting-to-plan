@@ -1,7 +1,39 @@
 """Strict schemas for a relative, non-metric whole-scene ground plan."""
 
+from copy import deepcopy
 import math
 from .grounding import convex_quad
+
+
+def normalize_plan_envelope(stage, data, context):
+    """Normalize only unambiguous metadata, never geometry or model decisions.
+
+    A missing stage can be supplied from the request. The observed word-order
+    variant ``partial_visible`` means the existing ``visible_partial`` enum.
+    Explicitly different stages and all substantive schema errors stay rejected.
+    Return a copy plus an audit trail only if the entire normalized result passes.
+    """
+    if not isinstance(data, dict):
+        return data, []
+    normalized = deepcopy(data)
+    changes = []
+    if "stage" not in normalized:
+        normalized["stage"] = stage
+        changes.append({"path": "stage", "before": None, "after": stage})
+    if stage == "plan_buildings" and isinstance(normalized.get("objects"), list):
+        for i, obj in enumerate(normalized["objects"]):
+            if isinstance(obj, dict) and obj.get("anchor_status") == "partial_visible":
+                obj["anchor_status"] = "visible_partial"
+                changes.append(
+                    {
+                        "path": f"objects[{i}].anchor_status",
+                        "before": "partial_visible",
+                        "after": "visible_partial",
+                    }
+                )
+    if not changes or validate_plan_stage(stage, normalized, context):
+        return data, []
+    return normalized, changes
 
 
 def point(p):
@@ -199,7 +231,13 @@ def validate_plan_stage(stage, data, context):
         elif stage == "plan_layout":
             candidates = {b["id"] for b in context["candidates"]}
             zones = {z["id"] for z in context["terrain"]["zones"]}
-            terrain_ids = {z["id"] for z in context["terrain"].get("terrain", [])}
+            # Access/adjacency can legitimately refer to a route or tree group,
+            # not only a land polygon. All targets must still exist in context.
+            terrain_ids = {
+                z["id"]
+                for key in ("terrain", "trees", "routes")
+                for z in context["terrain"].get(key, [])
+            }
             ids = set()
             seen = []
             for b in data["buildings"]:

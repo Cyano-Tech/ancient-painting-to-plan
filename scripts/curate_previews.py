@@ -1,4 +1,4 @@
-"""Copy an explicitly replayed artifact tree into fresh example preview folders."""
+"""Archive replay previews outside the PNG-only public showcase."""
 
 from __future__ import annotations
 
@@ -10,8 +10,12 @@ import shutil
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--replay", type=Path, required=True)
-    parser.add_argument("--examples", type=Path, default=Path("examples"))
+    parser.add_argument("--examples", type=Path, default=Path("artifacts/replay-previews"))
     args = parser.parse_args()
+    if args.examples.resolve() == (Path(__file__).resolve().parents[1] / "examples"):
+        raise ValueError(
+            "examples/ is reserved for the ten 2D PNG cards; choose an artifact directory"
+        )
     for name in ("cuboid3d", "foundation2d"):
         source = args.replay / name
         destination = args.examples / name / "preview"
