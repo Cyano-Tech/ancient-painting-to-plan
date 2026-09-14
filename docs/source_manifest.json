@@ -1,0 +1,153 @@
+{
+  "description": "Original source digests before packaging/refactoring; not current release-file checksums.",
+  "sources": [
+    {
+      "path": "src/ancientplan/cuboid3d/pipeline.py",
+      "original_sha256": "f1ca6b106c837a40e45aab80731a741d3b77a8c12431ae1f04a9d4eee979625c"
+    },
+    {
+      "path": "src/ancientplan/cuboid3d/validate_outputs.py",
+      "original_sha256": "4a0b9c59e473dd58da089eb4aa6069ec2c1b2a5c6e5530234fd847b8305889c9"
+    },
+    {
+      "path": "src/ancientplan/cuboid3d/detect_building_instances.py",
+      "original_sha256": "932e4abe9e68862f178f92b4bd7b1e1e8be924262ef7d5e96c29a98b88d38db3"
+    },
+    {
+      "path": "src/ancientplan/cuboid3d/detect_whole_buildings_vlm.py",
+      "original_sha256": "dce7d64deb1a0b04547da25bf9a69c68cc656cec3a9a412aad49441e14370571"
+    },
+    {
+      "path": "src/ancientplan/cuboid3d/infer_building_orientations_vlm.py",
+      "original_sha256": "5473a2895c00885869983ce17f8bcc285b6e97eb70ad7b9ab8b10bbe34032bae"
+    },
+    {
+      "path": "src/ancientplan/cuboid3d/prepare_building_dataset.py",
+      "original_sha256": "e2103e1dc133bbd77ee95fb41c8b0bcb92b04393725af37f615922d0dcce3a11"
+    },
+    {
+      "path": "src/ancientplan/cuboid3d/prepare_building_classifier_dataset.py",
+      "original_sha256": "44d8238dcdc936238595c0f70911e3e4866c44a0f8989f94a23b56b67a67299c"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/advance_scene.py",
+      "original_sha256": "58e2c24947e5647e40587ad701154bdd0fc5463f2e3d17363db986b7db20f58c"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/apply_identity_evidence.py",
+      "original_sha256": "5065a667ccc805243884bb7afd4072bcac5c0d0c31cd79429b6144277e329f31"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/apply_shape_evidence.py",
+      "original_sha256": "dd4d4e2548a4f76d93ca94536d56def52cfabffba796d8424aac33f5d32a067a"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/build_gallery.py",
+      "original_sha256": "0ad3d46c822a65ab69dc63e2b2d4d9c7d054d96f1fe971b36b6a347d0019b643"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/build_ground_report.py",
+      "original_sha256": "a16c82e6f969a734a1c9e901650af4a48234550ea7570e9a648c7d56158764fb"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/complete_plan.py",
+      "original_sha256": "1061717069989f2f4da1c0dd31493e40eb701fac67412e3e14232674d431d435"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/detail_scene.py",
+      "original_sha256": "129b49f2f2c2b565e369db400a9a0c65e7f42032219e3583dd30719b5469af1b"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/grounding.py",
+      "original_sha256": "7e5ed4adaa39d44111d8c64c3d9b258a57298115e35a66c1e4e6c79a9376cc16"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/identity_audit.py",
+      "original_sha256": "7ab30bb3da3da49b35d908b56bf80eb120944844e48b39ca8a631fd4258c35a6"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/inventory_tiles.py",
+      "original_sha256": "37ba933dd6d7d87637e4d24ac75ca0c38334b3643717bf55176c3cc16add7921"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/normalize_inventory.py",
+      "original_sha256": "241bcd49391fcce97358ba8890a17a217197c171766b5ceb19ef43d050e291f5"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/normalize_structure.py",
+      "original_sha256": "a4675fd388e7090c8c4567304ff49b7d1629c62da0f77a98f3d269c582fa516a"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/optimize_plan.py",
+      "original_sha256": "f977ef0ba2e5f9471c38714ebc8b3692e0850a1fbf881282f00ab246a2804793"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/plan_schema.py",
+      "original_sha256": "160f8c08ba779c73565ac13277a1b9d3e3490ff66f14278093697291bcb594b8"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/plane_geometry.py",
+      "original_sha256": "6ec2d0aefedb4b2eb4fed7605d318e57edefce0de658c62a77cfd070acfff8c0"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/promote_missing.py",
+      "original_sha256": "83c19ec3ac4f78373f6b088caaed2ce20f61eba0f4031b9beae41e8f2139c111"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/publish_complete_plan.py",
+      "original_sha256": "e1b818c9b3e0733c9944ea65a666f4b9e95efc4ee187623ed68bc580ca4a0080"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/qwen_cloud.py",
+      "original_sha256": "447cbbdde994b2a08ae29328c3e6bbf40a783450e4faaed3dd252868d6129b00"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/render_complete_plan.py",
+      "original_sha256": "90445e10ccd1d54b47717d1011085aaab6503c1a47618a4970d1ab59e5d566ff"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/render_foundations.py",
+      "original_sha256": "b321de24fce1f5ad2108ae6ec0b88b65442921871fc5859ca43dd0bcc4cbf02a"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/render_glass.py",
+      "original_sha256": "ce7027ca2aa8d953d11e797e7b10b9d1216836bdeb75ab70ec0ef4bdb83bf797"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/render_inventory.py",
+      "original_sha256": "852e2061f4373b10abdd68daa3d0cc70d6c09a85d4375abba57aae9ebb60cc05"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/render_revision_comparison.py",
+      "original_sha256": "e2736228e4696d2121f114200b5369a4f8fc91d24fd263443a7d6127787b8c8f"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/revise_foundation.py",
+      "original_sha256": "1954ec3733addebe2efc256ace02d863280a1239a7656876aa8fb9ae379f35bb"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/scene_schema.py",
+      "original_sha256": "e4caf92aa210ac287e94a7f4af0c04a6e506a47dc08d1ef5a6b1a85befc1e36f"
+    },
+    {
+      "path": "src/ancientplan/foundation2d/summarize_reviews.py",
+      "original_sha256": "2a3b0226d98bbf2b0ddb7dd3eb4975987b0efa4cc2e5613f6e9c4165fdb837b7"
+    },
+    {
+      "path": "tests/foundation2d/test_complete_plan.py",
+      "original_sha256": "04e729c7c5ec5576c72568c61c3e594d88644f1edd3845690dc9ebe701ee9eb0"
+    },
+    {
+      "path": "tests/foundation2d/test_grounding.py",
+      "original_sha256": "7f95d17cb70ec5df5090dd20d15c4036fb1f53900ce88a13f808f90376297752"
+    },
+    {
+      "path": "tests/foundation2d/test_qwen_cloud.py",
+      "original_sha256": "de920e2c437c8c15a4ddac03b77d227f3bd5bd0237540c56fcd8610d8d3003a8"
+    },
+    {
+      "path": "tests/foundation2d/test_scene_schema.py",
+      "original_sha256": "4c24f12ef264ee7c7b2361349ef7de1b77e7a023be422452fa65e0437ad70aea"
+    }
+  ]
+}

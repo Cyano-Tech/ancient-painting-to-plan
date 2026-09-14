@@ -1,0 +1,66 @@
+{
+  "recorded_at_utc": "2026-09-14T00:57:20.777397+00:00",
+  "python": "3.12.13",
+  "dependencies": {
+    "Pillow": "12.3.0",
+    "jsonschema": "4.26.0",
+    "CairoSVG": "2.9.1",
+    "pytest": "9.1.1",
+    "ruff": "0.12.12"
+  },
+  "pytest": {
+    "tests": 86,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gpu_used": false,
+  "cloud_calls_during_packaging": 0,
+  "cuboid3d": {
+    "scene_01_compound": {
+      "instances": 4,
+      "contract_errors": [],
+      "accuracy_measured": false
+    },
+    "scene_02_pond_house": {
+      "instances": 2,
+      "contract_errors": [],
+      "accuracy_measured": false
+    },
+    "scene_03_hillside_hamlet": {
+      "instances": 2,
+      "contract_errors": [],
+      "accuracy_measured": false
+    }
+  },
+  "foundation2d": {
+    "mode": "offline_snapshot_replay",
+    "gpu_used": false,
+    "cloud_calls": 0,
+    "footprint_regions": 23,
+    "categories": {
+      "house": 20,
+      "other": 3
+    },
+    "grouped_ids": [
+      "H02",
+      "H07",
+      "H21"
+    ],
+    "pending_ids": [
+      "H29"
+    ],
+    "source_candidates_accounted_for": 35,
+    "schema_errors": [],
+    "geometry_issues": [],
+    "semantic_accuracy_measured": false,
+    "historical_review_rerun": false,
+    "original_export_sha256": "816df9f7fef013e9123cad5af2f2e70f437bdf69ce821e2563e940ae6b4f0079"
+  },
+  "claims_excluded": [
+    "semantic_ground_truth_accuracy",
+    "metric_calibration",
+    "fresh_local_model_inference",
+    "fresh_cloud_inference"
+  ]
+}

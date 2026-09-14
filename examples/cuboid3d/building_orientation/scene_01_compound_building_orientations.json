@@ -1,0 +1,1516 @@
+{
+  "stage": "automatic_building_orientation_inference",
+  "image": "archive/legacy/inputs/scene_01_compound.png",
+  "image_size": [
+    1298,
+    1292
+  ],
+  "image_sha256": "e1200878b308dcace79dde5bde95d8355beb61a7c5c9f6577cc651915f34d975",
+  "detection_source": "archive/legacy/house_detection/scene_01_compound_building_instances.json",
+  "detection_sha256": "bb3aa4ccfe1e0175e11c221e1ef4a46f4abf37a62d7a583cc7d72a16416fb52d",
+  "model": "Qwen/Qwen3-VL-32B-Instruct-FP8",
+  "method": "second_stage_vlm_grounded_visible_end_corners_plus_mask_structural_axis_fusion",
+  "orientation_definition": {
+    "axis": "building_long_ground_axis_in_rectified_orthographic_top_view",
+    "vlm_output": "grounded_center_visible_short_end_midpoint_and_ground_corners",
+    "camera_rectification": {
+      "projection": "orthographic",
+      "pitch_deg": 18.0,
+      "azimuth_deg": 0.0,
+      "roll_deg": 0
+    },
+    "top_view_mapping": {
+      "painting_right": "right",
+      "painting_far_upper": "up"
+    },
+    "clock_reference": {
+      "12": "up",
+      "3": "right",
+      "6": "down",
+      "9": "left"
+    },
+    "directed_endpoint": "visible_left_or_right_short_end",
+    "range": "full_12_hour_clock",
+    "quantization_minutes": 30
+  },
+  "semantic_prompt_template": "The first vision stage has already detected one complete building. You receive\nan isolated crop containing only the SAME accepted SAM region on a neutral\nbackground. Do not re-detect, re-box, merge, or split the target. Coordinates\nbelow are normalized to this entire isolated crop: top-left is [0,0] and\nbottom-right is [1000,1000].\n\nAnalyze the target's ground-plane LONG AXIS before choosing any clock angle.\nThe long axis runs along the roof ridge and long eaves, from one SHORT end wall\nto the other. Do not mistake roof-slope lines (ridge to eave), a broad long\nfacade, an awning, fence, gate, vegetation, shadow, or a neighboring roof for\nthe long axis.\n\nFirst trace the dominant ridge/long-eave family through the target. Then locate\nthe visible short END WALL supported below its roof/gable end. The requested\ndirected axis points from the footprint's ground-plane center toward the\nground-contact midpoint of that visible short end wall. Do not point to the\ngable apex, a roof corner, the broad facade, or the image-box center. If part of\nthe wall base is occluded, infer its midpoint from the two wall corners and\nvertical supports. The endpoint's lower screen y means nearer on the ground.\n\nAlso locate the TWO ground-contact corners at the bottom of that SAME short end\nwall. They are the endpoints of the short wall's footprint edge, not the ends\nof the long facade. Use the vertical wall posts/edges to carry each corner down\nto the inferred ground plane when foliage, a fence, or shadow hides the base.\nNever use the roof ridge endpoints, gable apex, eave tips, or two corners from\ndifferent walls. If the two base corners genuinely cannot be distinguished,\nreturn null for the corner pair instead of inventing a very narrow wall.\n\nReturn JSON only with keys \"id\", \"building_ground_center_1000\" ([x,y]),\n\"visible_short_end_ground_midpoint_1000\" ([x,y]), \"visual_cues\" (a short\nstring naming the ridge, end wall, and supporting corners),\n\"visible_short_end_ground_corners_1000\" ([[x1,y1],[x2,y2]] or null),\n\"short_end_corners_confidence\" (0 to 1), and \"confidence\" (0 to 1). Do not\nreturn a direction letter or clock angle; geometry will derive those from the\nindependently grounded points.",
+  "fusion_policy": {
+    "candidate_vocabulary": "24 directed half-hour ground-plane axes",
+    "hard_constraints": "same left/right and nearer/farther quadrant as VLM points",
+    "score": "normalized_mask_hough_support + 1.1 * cosine(point_angle_difference)",
+    "scene_specific_labels_or_coordinates": false
+  },
+  "candidate_mapping": [
+    {
+      "id": "House_01",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "top_view_angle_deg_clockwise_from_right": 0.0,
+          "clock_hour": 3.0,
+          "clock": "3:00",
+          "source_line_px": [
+            38.0,
+            630.0,
+            286.0,
+            630.0
+          ],
+          "line_support": 3096.155
+        },
+        {
+          "candidate_id": "B",
+          "top_view_angle_deg_clockwise_from_right": 15.0,
+          "clock_hour": 3.5,
+          "clock": "3:30",
+          "source_line_px": [
+            124.0,
+            716.0,
+            187.0,
+            723.0
+          ],
+          "line_support": 1373.76
+        },
+        {
+          "candidate_id": "C",
+          "top_view_angle_deg_clockwise_from_right": 30.0,
+          "clock_hour": 4.0,
+          "clock": "4:00",
+          "source_line_px": [
+            180.0,
+            724.0,
+            245.0,
+            733.0
+          ],
+          "line_support": 708.248
+        },
+        {
+          "candidate_id": "D",
+          "top_view_angle_deg_clockwise_from_right": 45.0,
+          "clock_hour": 4.5,
+          "clock": "4:30",
+          "source_line_px": [
+            228.0,
+            689.0,
+            278.0,
+            708.0
+          ],
+          "line_support": 382.252
+        },
+        {
+          "candidate_id": "E",
+          "top_view_angle_deg_clockwise_from_right": 60.0,
+          "clock_hour": 5.0,
+          "clock": "5:00",
+          "source_line_px": [
+            66.0,
+            654.0,
+            103.0,
+            679.0
+          ],
+          "line_support": 304.718
+        },
+        {
+          "candidate_id": "F",
+          "top_view_angle_deg_clockwise_from_right": 75.0,
+          "clock_hour": 5.5,
+          "clock": "5:30",
+          "source_line_px": [
+            153.0,
+            631.0,
+            212.0,
+            676.0
+          ],
+          "line_support": 265.272
+        },
+        {
+          "candidate_id": "G",
+          "top_view_angle_deg_clockwise_from_right": 90.0,
+          "clock_hour": 6.0,
+          "clock": "6:00",
+          "source_line_px": [
+            136.0,
+            683.0,
+            136.0,
+            720.0
+          ],
+          "line_support": 188.248
+        },
+        {
+          "candidate_id": "H",
+          "top_view_angle_deg_clockwise_from_right": 105.0,
+          "clock_hour": 6.5,
+          "clock": "6:30",
+          "source_line_px": [
+            287.0,
+            698.0,
+            267.0,
+            715.0
+          ],
+          "line_support": 150.259
+        },
+        {
+          "candidate_id": "I",
+          "top_view_angle_deg_clockwise_from_right": 120.0,
+          "clock_hour": 7.0,
+          "clock": "7:00",
+          "source_line_px": [
+            253.0,
+            629.0,
+            204.0,
+            654.0
+          ],
+          "line_support": 471.471
+        },
+        {
+          "candidate_id": "J",
+          "top_view_angle_deg_clockwise_from_right": 135.0,
+          "clock_hour": 7.5,
+          "clock": "7:30",
+          "source_line_px": [
+            201.0,
+            713.0,
+            150.0,
+            728.0
+          ],
+          "line_support": 1153.058
+        },
+        {
+          "candidate_id": "K",
+          "top_view_angle_deg_clockwise_from_right": 150.0,
+          "clock_hour": 8.0,
+          "clock": "8:00",
+          "source_line_px": [
+            227.0,
+            632.0,
+            155.0,
+            642.0
+          ],
+          "line_support": 1422.348
+        },
+        {
+          "candidate_id": "L",
+          "top_view_angle_deg_clockwise_from_right": 165.0,
+          "clock_hour": 8.5,
+          "clock": "8:30",
+          "source_line_px": [
+            184.0,
+            644.0,
+            97.0,
+            653.0
+          ],
+          "line_support": 2380.537
+        },
+        {
+          "candidate_id": "M",
+          "top_view_angle_deg_clockwise_from_right": 180.0,
+          "clock_hour": 9.0,
+          "clock": "9:00",
+          "source_line_px": [
+            38.0,
+            630.0,
+            286.0,
+            630.0
+          ],
+          "line_support": 3096.155
+        },
+        {
+          "candidate_id": "N",
+          "top_view_angle_deg_clockwise_from_right": 195.0,
+          "clock_hour": 9.5,
+          "clock": "9:30",
+          "source_line_px": [
+            124.0,
+            716.0,
+            187.0,
+            723.0
+          ],
+          "line_support": 1373.76
+        },
+        {
+          "candidate_id": "O",
+          "top_view_angle_deg_clockwise_from_right": 210.0,
+          "clock_hour": 10.0,
+          "clock": "10:00",
+          "source_line_px": [
+            180.0,
+            724.0,
+            245.0,
+            733.0
+          ],
+          "line_support": 708.248
+        },
+        {
+          "candidate_id": "P",
+          "top_view_angle_deg_clockwise_from_right": 225.0,
+          "clock_hour": 10.5,
+          "clock": "10:30",
+          "source_line_px": [
+            228.0,
+            689.0,
+            278.0,
+            708.0
+          ],
+          "line_support": 382.252
+        },
+        {
+          "candidate_id": "Q",
+          "top_view_angle_deg_clockwise_from_right": 240.0,
+          "clock_hour": 11.0,
+          "clock": "11:00",
+          "source_line_px": [
+            66.0,
+            654.0,
+            103.0,
+            679.0
+          ],
+          "line_support": 304.718
+        },
+        {
+          "candidate_id": "R",
+          "top_view_angle_deg_clockwise_from_right": 255.0,
+          "clock_hour": 11.5,
+          "clock": "11:30",
+          "source_line_px": [
+            153.0,
+            631.0,
+            212.0,
+            676.0
+          ],
+          "line_support": 265.272
+        },
+        {
+          "candidate_id": "S",
+          "top_view_angle_deg_clockwise_from_right": 270.0,
+          "clock_hour": 12.0,
+          "clock": "12:00",
+          "source_line_px": [
+            136.0,
+            683.0,
+            136.0,
+            720.0
+          ],
+          "line_support": 188.248
+        },
+        {
+          "candidate_id": "T",
+          "top_view_angle_deg_clockwise_from_right": 285.0,
+          "clock_hour": 12.5,
+          "clock": "12:30",
+          "source_line_px": [
+            287.0,
+            698.0,
+            267.0,
+            715.0
+          ],
+          "line_support": 150.259
+        },
+        {
+          "candidate_id": "U",
+          "top_view_angle_deg_clockwise_from_right": 300.0,
+          "clock_hour": 1.0,
+          "clock": "1:00",
+          "source_line_px": [
+            253.0,
+            629.0,
+            204.0,
+            654.0
+          ],
+          "line_support": 471.471
+        },
+        {
+          "candidate_id": "V",
+          "top_view_angle_deg_clockwise_from_right": 315.0,
+          "clock_hour": 1.5,
+          "clock": "1:30",
+          "source_line_px": [
+            201.0,
+            713.0,
+            150.0,
+            728.0
+          ],
+          "line_support": 1153.058
+        },
+        {
+          "candidate_id": "W",
+          "top_view_angle_deg_clockwise_from_right": 330.0,
+          "clock_hour": 2.0,
+          "clock": "2:00",
+          "source_line_px": [
+            227.0,
+            632.0,
+            155.0,
+            642.0
+          ],
+          "line_support": 1422.348
+        },
+        {
+          "candidate_id": "X",
+          "top_view_angle_deg_clockwise_from_right": 345.0,
+          "clock_hour": 2.5,
+          "clock": "2:30",
+          "source_line_px": [
+            184.0,
+            644.0,
+            97.0,
+            653.0
+          ],
+          "line_support": 2380.537
+        }
+      ]
+    },
+    {
+      "id": "House_02",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "top_view_angle_deg_clockwise_from_right": 0.0,
+          "clock_hour": 3.0,
+          "clock": "3:00",
+          "source_line_px": [
+            882.0,
+            832.0,
+            943.0,
+            832.0
+          ],
+          "line_support": 531.046
+        },
+        {
+          "candidate_id": "B",
+          "top_view_angle_deg_clockwise_from_right": 15.0,
+          "clock_hour": 3.5,
+          "clock": "3:30",
+          "source_line_px": [
+            949.0,
+            819.0,
+            1007.0,
+            822.0
+          ],
+          "line_support": 428.142
+        },
+        {
+          "candidate_id": "C",
+          "top_view_angle_deg_clockwise_from_right": 30.0,
+          "clock_hour": 4.0,
+          "clock": "4:00",
+          "source_line_px": [
+            906.0,
+            875.0,
+            968.0,
+            887.0
+          ],
+          "line_support": 353.705
+        },
+        {
+          "candidate_id": "D",
+          "top_view_angle_deg_clockwise_from_right": 45.0,
+          "clock_hour": 4.5,
+          "clock": "4:30",
+          "source_line_px": [
+            917.0,
+            837.0,
+            953.0,
+            848.0
+          ],
+          "line_support": 216.438
+        },
+        {
+          "candidate_id": "E",
+          "top_view_angle_deg_clockwise_from_right": 60.0,
+          "clock_hour": 5.0,
+          "clock": "5:00",
+          "source_line_px": [
+            985.0,
+            746.0,
+            1042.0,
+            774.0
+          ],
+          "line_support": 304.259
+        },
+        {
+          "candidate_id": "F",
+          "top_view_angle_deg_clockwise_from_right": 75.0,
+          "clock_hour": 5.5,
+          "clock": "5:30",
+          "source_line_px": [
+            992.0,
+            743.0,
+            1026.0,
+            788.0
+          ],
+          "line_support": 432.005
+        },
+        {
+          "candidate_id": "G",
+          "top_view_angle_deg_clockwise_from_right": 90.0,
+          "clock_hour": 6.0,
+          "clock": "6:00",
+          "source_line_px": [
+            1069.0,
+            712.0,
+            1048.0,
+            836.0
+          ],
+          "line_support": 1907.036
+        },
+        {
+          "candidate_id": "H",
+          "top_view_angle_deg_clockwise_from_right": 105.0,
+          "clock_hour": 6.5,
+          "clock": "6:30",
+          "source_line_px": [
+            1111.0,
+            707.0,
+            1014.0,
+            780.0
+          ],
+          "line_support": 2987.507
+        },
+        {
+          "candidate_id": "I",
+          "top_view_angle_deg_clockwise_from_right": 120.0,
+          "clock_hour": 7.0,
+          "clock": "7:00",
+          "source_line_px": [
+            1134.0,
+            691.0,
+            1007.0,
+            753.0
+          ],
+          "line_support": 3654.797
+        },
+        {
+          "candidate_id": "J",
+          "top_view_angle_deg_clockwise_from_right": 135.0,
+          "clock_hour": 7.5,
+          "clock": "7:30",
+          "source_line_px": [
+            1087.0,
+            762.0,
+            1037.0,
+            774.0
+          ],
+          "line_support": 1385.238
+        },
+        {
+          "candidate_id": "K",
+          "top_view_angle_deg_clockwise_from_right": 150.0,
+          "clock_hour": 8.0,
+          "clock": "8:00",
+          "source_line_px": [
+            1014.0,
+            804.0,
+            925.0,
+            824.0
+          ],
+          "line_support": 933.052
+        },
+        {
+          "candidate_id": "L",
+          "top_view_angle_deg_clockwise_from_right": 165.0,
+          "clock_hour": 8.5,
+          "clock": "8:30",
+          "source_line_px": [
+            927.0,
+            844.0,
+            885.0,
+            849.0
+          ],
+          "line_support": 544.944
+        },
+        {
+          "candidate_id": "M",
+          "top_view_angle_deg_clockwise_from_right": 180.0,
+          "clock_hour": 9.0,
+          "clock": "9:00",
+          "source_line_px": [
+            882.0,
+            832.0,
+            943.0,
+            832.0
+          ],
+          "line_support": 531.046
+        },
+        {
+          "candidate_id": "N",
+          "top_view_angle_deg_clockwise_from_right": 195.0,
+          "clock_hour": 9.5,
+          "clock": "9:30",
+          "source_line_px": [
+            949.0,
+            819.0,
+            1007.0,
+            822.0
+          ],
+          "line_support": 428.142
+        },
+        {
+          "candidate_id": "O",
+          "top_view_angle_deg_clockwise_from_right": 210.0,
+          "clock_hour": 10.0,
+          "clock": "10:00",
+          "source_line_px": [
+            906.0,
+            875.0,
+            968.0,
+            887.0
+          ],
+          "line_support": 353.705
+        },
+        {
+          "candidate_id": "P",
+          "top_view_angle_deg_clockwise_from_right": 225.0,
+          "clock_hour": 10.5,
+          "clock": "10:30",
+          "source_line_px": [
+            917.0,
+            837.0,
+            953.0,
+            848.0
+          ],
+          "line_support": 216.438
+        },
+        {
+          "candidate_id": "Q",
+          "top_view_angle_deg_clockwise_from_right": 240.0,
+          "clock_hour": 11.0,
+          "clock": "11:00",
+          "source_line_px": [
+            985.0,
+            746.0,
+            1042.0,
+            774.0
+          ],
+          "line_support": 304.259
+        },
+        {
+          "candidate_id": "R",
+          "top_view_angle_deg_clockwise_from_right": 255.0,
+          "clock_hour": 11.5,
+          "clock": "11:30",
+          "source_line_px": [
+            992.0,
+            743.0,
+            1026.0,
+            788.0
+          ],
+          "line_support": 432.005
+        },
+        {
+          "candidate_id": "S",
+          "top_view_angle_deg_clockwise_from_right": 270.0,
+          "clock_hour": 12.0,
+          "clock": "12:00",
+          "source_line_px": [
+            1069.0,
+            712.0,
+            1048.0,
+            836.0
+          ],
+          "line_support": 1907.036
+        },
+        {
+          "candidate_id": "T",
+          "top_view_angle_deg_clockwise_from_right": 285.0,
+          "clock_hour": 12.5,
+          "clock": "12:30",
+          "source_line_px": [
+            1111.0,
+            707.0,
+            1014.0,
+            780.0
+          ],
+          "line_support": 2987.507
+        },
+        {
+          "candidate_id": "U",
+          "top_view_angle_deg_clockwise_from_right": 300.0,
+          "clock_hour": 1.0,
+          "clock": "1:00",
+          "source_line_px": [
+            1134.0,
+            691.0,
+            1007.0,
+            753.0
+          ],
+          "line_support": 3654.797
+        },
+        {
+          "candidate_id": "V",
+          "top_view_angle_deg_clockwise_from_right": 315.0,
+          "clock_hour": 1.5,
+          "clock": "1:30",
+          "source_line_px": [
+            1087.0,
+            762.0,
+            1037.0,
+            774.0
+          ],
+          "line_support": 1385.238
+        },
+        {
+          "candidate_id": "W",
+          "top_view_angle_deg_clockwise_from_right": 330.0,
+          "clock_hour": 2.0,
+          "clock": "2:00",
+          "source_line_px": [
+            1014.0,
+            804.0,
+            925.0,
+            824.0
+          ],
+          "line_support": 933.052
+        },
+        {
+          "candidate_id": "X",
+          "top_view_angle_deg_clockwise_from_right": 345.0,
+          "clock_hour": 2.5,
+          "clock": "2:30",
+          "source_line_px": [
+            927.0,
+            844.0,
+            885.0,
+            849.0
+          ],
+          "line_support": 544.944
+        }
+      ]
+    },
+    {
+      "id": "House_03",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "top_view_angle_deg_clockwise_from_right": 0.0,
+          "clock_hour": 3.0,
+          "clock": "3:00",
+          "source_line_px": [
+            170.0,
+            842.0,
+            200.0,
+            842.0
+          ],
+          "line_support": 274.019
+        },
+        {
+          "candidate_id": "B",
+          "top_view_angle_deg_clockwise_from_right": 15.0,
+          "clock_hour": 3.5,
+          "clock": "3:30",
+          "source_line_px": [
+            290.0,
+            766.0,
+            317.0,
+            768.0
+          ],
+          "line_support": 87.215
+        },
+        {
+          "candidate_id": "C",
+          "top_view_angle_deg_clockwise_from_right": 30.0,
+          "clock_hour": 4.0,
+          "clock": "4:00",
+          "source_line_px": [
+            310.0,
+            712.0,
+            354.0,
+            721.0
+          ],
+          "line_support": 183.105
+        },
+        {
+          "candidate_id": "D",
+          "top_view_angle_deg_clockwise_from_right": 45.0,
+          "clock_hour": 4.5,
+          "clock": "4:30",
+          "source_line_px": [
+            343.0,
+            725.0,
+            375.0,
+            737.0
+          ],
+          "line_support": 207.274
+        },
+        {
+          "candidate_id": "E",
+          "top_view_angle_deg_clockwise_from_right": 60.0,
+          "clock_hour": 5.0,
+          "clock": "5:00",
+          "source_line_px": [
+            319.0,
+            722.0,
+            353.0,
+            745.0
+          ],
+          "line_support": 258.386
+        },
+        {
+          "candidate_id": "F",
+          "top_view_angle_deg_clockwise_from_right": 75.0,
+          "clock_hour": 5.5,
+          "clock": "5:30",
+          "source_line_px": [
+            284.0,
+            780.0,
+            316.0,
+            820.0
+          ],
+          "line_support": 501.085
+        },
+        {
+          "candidate_id": "G",
+          "top_view_angle_deg_clockwise_from_right": 90.0,
+          "clock_hour": 6.0,
+          "clock": "6:00",
+          "source_line_px": [
+            353.0,
+            715.0,
+            330.0,
+            777.0
+          ],
+          "line_support": 942.484
+        },
+        {
+          "candidate_id": "H",
+          "top_view_angle_deg_clockwise_from_right": 105.0,
+          "clock_hour": 6.5,
+          "clock": "6:30",
+          "source_line_px": [
+            367.0,
+            710.0,
+            298.0,
+            779.0
+          ],
+          "line_support": 2907.01
+        },
+        {
+          "candidate_id": "I",
+          "top_view_angle_deg_clockwise_from_right": 120.0,
+          "clock_hour": 7.0,
+          "clock": "7:00",
+          "source_line_px": [
+            379.0,
+            706.0,
+            305.0,
+            761.0
+          ],
+          "line_support": 2760.14
+        },
+        {
+          "candidate_id": "J",
+          "top_view_angle_deg_clockwise_from_right": 135.0,
+          "clock_hour": 7.5,
+          "clock": "7:30",
+          "source_line_px": [
+            409.0,
+            756.0,
+            343.0,
+            778.0
+          ],
+          "line_support": 1331.438
+        },
+        {
+          "candidate_id": "K",
+          "top_view_angle_deg_clockwise_from_right": 150.0,
+          "clock_hour": 8.0,
+          "clock": "8:00",
+          "source_line_px": [
+            332.0,
+            743.0,
+            277.0,
+            752.0
+          ],
+          "line_support": 343.961
+        },
+        {
+          "candidate_id": "L",
+          "top_view_angle_deg_clockwise_from_right": 165.0,
+          "clock_hour": 8.5,
+          "clock": "8:30",
+          "source_line_px": [
+            321.0,
+            834.0,
+            245.0,
+            838.0
+          ],
+          "line_support": 358.989
+        },
+        {
+          "candidate_id": "M",
+          "top_view_angle_deg_clockwise_from_right": 180.0,
+          "clock_hour": 9.0,
+          "clock": "9:00",
+          "source_line_px": [
+            170.0,
+            842.0,
+            200.0,
+            842.0
+          ],
+          "line_support": 274.019
+        },
+        {
+          "candidate_id": "N",
+          "top_view_angle_deg_clockwise_from_right": 195.0,
+          "clock_hour": 9.5,
+          "clock": "9:30",
+          "source_line_px": [
+            290.0,
+            766.0,
+            317.0,
+            768.0
+          ],
+          "line_support": 87.215
+        },
+        {
+          "candidate_id": "O",
+          "top_view_angle_deg_clockwise_from_right": 210.0,
+          "clock_hour": 10.0,
+          "clock": "10:00",
+          "source_line_px": [
+            310.0,
+            712.0,
+            354.0,
+            721.0
+          ],
+          "line_support": 183.105
+        },
+        {
+          "candidate_id": "P",
+          "top_view_angle_deg_clockwise_from_right": 225.0,
+          "clock_hour": 10.5,
+          "clock": "10:30",
+          "source_line_px": [
+            343.0,
+            725.0,
+            375.0,
+            737.0
+          ],
+          "line_support": 207.274
+        },
+        {
+          "candidate_id": "Q",
+          "top_view_angle_deg_clockwise_from_right": 240.0,
+          "clock_hour": 11.0,
+          "clock": "11:00",
+          "source_line_px": [
+            319.0,
+            722.0,
+            353.0,
+            745.0
+          ],
+          "line_support": 258.386
+        },
+        {
+          "candidate_id": "R",
+          "top_view_angle_deg_clockwise_from_right": 255.0,
+          "clock_hour": 11.5,
+          "clock": "11:30",
+          "source_line_px": [
+            284.0,
+            780.0,
+            316.0,
+            820.0
+          ],
+          "line_support": 501.085
+        },
+        {
+          "candidate_id": "S",
+          "top_view_angle_deg_clockwise_from_right": 270.0,
+          "clock_hour": 12.0,
+          "clock": "12:00",
+          "source_line_px": [
+            353.0,
+            715.0,
+            330.0,
+            777.0
+          ],
+          "line_support": 942.484
+        },
+        {
+          "candidate_id": "T",
+          "top_view_angle_deg_clockwise_from_right": 285.0,
+          "clock_hour": 12.5,
+          "clock": "12:30",
+          "source_line_px": [
+            367.0,
+            710.0,
+            298.0,
+            779.0
+          ],
+          "line_support": 2907.01
+        },
+        {
+          "candidate_id": "U",
+          "top_view_angle_deg_clockwise_from_right": 300.0,
+          "clock_hour": 1.0,
+          "clock": "1:00",
+          "source_line_px": [
+            379.0,
+            706.0,
+            305.0,
+            761.0
+          ],
+          "line_support": 2760.14
+        },
+        {
+          "candidate_id": "V",
+          "top_view_angle_deg_clockwise_from_right": 315.0,
+          "clock_hour": 1.5,
+          "clock": "1:30",
+          "source_line_px": [
+            409.0,
+            756.0,
+            343.0,
+            778.0
+          ],
+          "line_support": 1331.438
+        },
+        {
+          "candidate_id": "W",
+          "top_view_angle_deg_clockwise_from_right": 330.0,
+          "clock_hour": 2.0,
+          "clock": "2:00",
+          "source_line_px": [
+            332.0,
+            743.0,
+            277.0,
+            752.0
+          ],
+          "line_support": 343.961
+        },
+        {
+          "candidate_id": "X",
+          "top_view_angle_deg_clockwise_from_right": 345.0,
+          "clock_hour": 2.5,
+          "clock": "2:30",
+          "source_line_px": [
+            321.0,
+            834.0,
+            245.0,
+            838.0
+          ],
+          "line_support": 358.989
+        }
+      ]
+    },
+    {
+      "id": "House_04",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "top_view_angle_deg_clockwise_from_right": 0.0,
+          "clock_hour": 3.0,
+          "clock": "3:00",
+          "source_line_px": [
+            783.0,
+            756.0,
+            846.0,
+            756.0
+          ],
+          "line_support": 831.073
+        },
+        {
+          "candidate_id": "B",
+          "top_view_angle_deg_clockwise_from_right": 15.0,
+          "clock_hour": 3.5,
+          "clock": "3:30",
+          "source_line_px": [
+            662.0,
+            762.0,
+            705.0,
+            766.0
+          ],
+          "line_support": 721.721
+        },
+        {
+          "candidate_id": "C",
+          "top_view_angle_deg_clockwise_from_right": 30.0,
+          "clock_hour": 4.0,
+          "clock": "4:00",
+          "source_line_px": [
+            659.0,
+            731.0,
+            749.0,
+            751.0
+          ],
+          "line_support": 742.983
+        },
+        {
+          "candidate_id": "D",
+          "top_view_angle_deg_clockwise_from_right": 45.0,
+          "clock_hour": 4.5,
+          "clock": "4:30",
+          "source_line_px": [
+            665.0,
+            767.0,
+            701.0,
+            779.0
+          ],
+          "line_support": 216.26
+        },
+        {
+          "candidate_id": "E",
+          "top_view_angle_deg_clockwise_from_right": 60.0,
+          "clock_hour": 5.0,
+          "clock": "5:00",
+          "source_line_px": [
+            701.0,
+            720.0,
+            775.0,
+            769.0
+          ],
+          "line_support": 533.948
+        },
+        {
+          "candidate_id": "F",
+          "top_view_angle_deg_clockwise_from_right": 75.0,
+          "clock_hour": 5.5,
+          "clock": "5:30",
+          "source_line_px": [
+            751.0,
+            749.0,
+            805.0,
+            805.0
+          ],
+          "line_support": 312.434
+        },
+        {
+          "candidate_id": "G",
+          "top_view_angle_deg_clockwise_from_right": 90.0,
+          "clock_hour": 6.0,
+          "clock": "6:00",
+          "source_line_px": [
+            742.0,
+            761.0,
+            742.0,
+            804.0
+          ],
+          "line_support": 346.77
+        },
+        {
+          "candidate_id": "H",
+          "top_view_angle_deg_clockwise_from_right": 105.0,
+          "clock_hour": 6.5,
+          "clock": "6:30",
+          "source_line_px": [
+            827.0,
+            798.0,
+            804.0,
+            846.0
+          ],
+          "line_support": 1069.983
+        },
+        {
+          "candidate_id": "I",
+          "top_view_angle_deg_clockwise_from_right": 120.0,
+          "clock_hour": 7.0,
+          "clock": "7:00",
+          "source_line_px": [
+            778.0,
+            787.0,
+            729.0,
+            817.0
+          ],
+          "line_support": 1272.297
+        },
+        {
+          "candidate_id": "J",
+          "top_view_angle_deg_clockwise_from_right": 135.0,
+          "clock_hour": 7.5,
+          "clock": "7:30",
+          "source_line_px": [
+            735.0,
+            779.0,
+            679.0,
+            800.0
+          ],
+          "line_support": 2052.154
+        },
+        {
+          "candidate_id": "K",
+          "top_view_angle_deg_clockwise_from_right": 150.0,
+          "clock_hour": 8.0,
+          "clock": "8:00",
+          "source_line_px": [
+            776.0,
+            741.0,
+            675.0,
+            757.0
+          ],
+          "line_support": 1882.44
+        },
+        {
+          "candidate_id": "L",
+          "top_view_angle_deg_clockwise_from_right": 165.0,
+          "clock_hour": 8.5,
+          "clock": "8:30",
+          "source_line_px": [
+            707.0,
+            749.0,
+            648.0,
+            756.0
+          ],
+          "line_support": 1056.921
+        },
+        {
+          "candidate_id": "M",
+          "top_view_angle_deg_clockwise_from_right": 180.0,
+          "clock_hour": 9.0,
+          "clock": "9:00",
+          "source_line_px": [
+            783.0,
+            756.0,
+            846.0,
+            756.0
+          ],
+          "line_support": 831.073
+        },
+        {
+          "candidate_id": "N",
+          "top_view_angle_deg_clockwise_from_right": 195.0,
+          "clock_hour": 9.5,
+          "clock": "9:30",
+          "source_line_px": [
+            662.0,
+            762.0,
+            705.0,
+            766.0
+          ],
+          "line_support": 721.721
+        },
+        {
+          "candidate_id": "O",
+          "top_view_angle_deg_clockwise_from_right": 210.0,
+          "clock_hour": 10.0,
+          "clock": "10:00",
+          "source_line_px": [
+            659.0,
+            731.0,
+            749.0,
+            751.0
+          ],
+          "line_support": 742.983
+        },
+        {
+          "candidate_id": "P",
+          "top_view_angle_deg_clockwise_from_right": 225.0,
+          "clock_hour": 10.5,
+          "clock": "10:30",
+          "source_line_px": [
+            665.0,
+            767.0,
+            701.0,
+            779.0
+          ],
+          "line_support": 216.26
+        },
+        {
+          "candidate_id": "Q",
+          "top_view_angle_deg_clockwise_from_right": 240.0,
+          "clock_hour": 11.0,
+          "clock": "11:00",
+          "source_line_px": [
+            701.0,
+            720.0,
+            775.0,
+            769.0
+          ],
+          "line_support": 533.948
+        },
+        {
+          "candidate_id": "R",
+          "top_view_angle_deg_clockwise_from_right": 255.0,
+          "clock_hour": 11.5,
+          "clock": "11:30",
+          "source_line_px": [
+            751.0,
+            749.0,
+            805.0,
+            805.0
+          ],
+          "line_support": 312.434
+        },
+        {
+          "candidate_id": "S",
+          "top_view_angle_deg_clockwise_from_right": 270.0,
+          "clock_hour": 12.0,
+          "clock": "12:00",
+          "source_line_px": [
+            742.0,
+            761.0,
+            742.0,
+            804.0
+          ],
+          "line_support": 346.77
+        },
+        {
+          "candidate_id": "T",
+          "top_view_angle_deg_clockwise_from_right": 285.0,
+          "clock_hour": 12.5,
+          "clock": "12:30",
+          "source_line_px": [
+            827.0,
+            798.0,
+            804.0,
+            846.0
+          ],
+          "line_support": 1069.983
+        },
+        {
+          "candidate_id": "U",
+          "top_view_angle_deg_clockwise_from_right": 300.0,
+          "clock_hour": 1.0,
+          "clock": "1:00",
+          "source_line_px": [
+            778.0,
+            787.0,
+            729.0,
+            817.0
+          ],
+          "line_support": 1272.297
+        },
+        {
+          "candidate_id": "V",
+          "top_view_angle_deg_clockwise_from_right": 315.0,
+          "clock_hour": 1.5,
+          "clock": "1:30",
+          "source_line_px": [
+            735.0,
+            779.0,
+            679.0,
+            800.0
+          ],
+          "line_support": 2052.154
+        },
+        {
+          "candidate_id": "W",
+          "top_view_angle_deg_clockwise_from_right": 330.0,
+          "clock_hour": 2.0,
+          "clock": "2:00",
+          "source_line_px": [
+            776.0,
+            741.0,
+            675.0,
+            757.0
+          ],
+          "line_support": 1882.44
+        },
+        {
+          "candidate_id": "X",
+          "top_view_angle_deg_clockwise_from_right": 345.0,
+          "clock_hour": 2.5,
+          "clock": "2:30",
+          "source_line_px": [
+            707.0,
+            749.0,
+            648.0,
+            756.0
+          ],
+          "line_support": 1056.921
+        }
+      ]
+    }
+  ],
+  "candidate_sheets": [
+    {
+      "id": "House_01",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_01_orientation_candidates.png"
+    },
+    {
+      "id": "House_02",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_02_orientation_candidates.png"
+    },
+    {
+      "id": "House_03",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_03_orientation_candidates.png"
+    },
+    {
+      "id": "House_04",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_04_orientation_candidates.png"
+    }
+  ],
+  "semantic_analysis_sheets": [
+    {
+      "id": "House_01",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_01_semantic_target.png"
+    },
+    {
+      "id": "House_02",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_02_semantic_target.png"
+    },
+    {
+      "id": "House_03",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_03_semantic_target.png"
+    },
+    {
+      "id": "House_04",
+      "path": "archive/legacy/building_orientation/scene_01_compound_House_04_semantic_target.png"
+    }
+  ],
+  "raw_responses": [
+    {
+      "id": "House_01",
+      "semantic_response": "{\n  \"id\": \"House_01\",\n  \"building_ground_center_1000\": [500, 700],\n  \"visible_short_end_ground_midpoint_1000\": [850, 750],\n  \"visual_cues\": \"ridge along roof top, visible short end wall with vertical posts, base corners inferred from posts\",\n  \"visible_short_end_ground_corners_1000\": [[800, 750], [900, 750]],\n  \"short_end_corners_confidence\": 0.8,\n  \"confidence\": 0.9\n}"
+    },
+    {
+      "id": "House_02",
+      "semantic_response": "{\n  \"id\": \"House_02\",\n  \"building_ground_center_1000\": [500, 600],\n  \"visible_short_end_ground_midpoint_1000\": [250, 650],\n  \"visual_cues\": \"ridge along roof top, visible short end wall with vertical supports, base corners inferred from wall edges\",\n  \"visible_short_end_ground_corners_1000\": [[200, 650], [300, 650]],\n  \"short_end_corners_confidence\": 0.8,\n  \"confidence\": 0.9\n}"
+    },
+    {
+      "id": "House_03",
+      "semantic_response": "{\n  \"id\": \"House_03\",\n  \"building_ground_center_1000\": [450, 450],\n  \"visible_short_end_ground_midpoint_1000\": [250, 600],\n  \"visual_cues\": \"ridge along top edge, short end wall at left with vertical supports, base corners inferred from wall edges\",\n  \"visible_short_end_ground_corners_1000\": [[200, 600], [300, 600]],\n  \"short_end_corners_confidence\": 0.8,\n  \"confidence\": 0.9\n}"
+    },
+    {
+      "id": "House_04",
+      "semantic_response": "{\n  \"id\": \"House_04\",\n  \"building_ground_center_1000\": [500, 600],\n  \"visible_short_end_ground_midpoint_1000\": [800, 700],\n  \"visual_cues\": \"ridge along roof top, short end wall with vertical posts, corners inferred from post bases\",\n  \"visible_short_end_ground_corners_1000\": [[700, 700], [900, 700]],\n  \"short_end_corners_confidence\": 0.8,\n  \"confidence\": 0.9\n}"
+    }
+  ],
+  "grounding_reused_from": null,
+  "orientations": [
+    {
+      "id": "House_01",
+      "candidate_id": "A",
+      "visible_side_horizontal": "right",
+      "visible_side_depth": "same_depth",
+      "clock": "3:00",
+      "clock_hour": 3.0,
+      "top_view_angle_deg_clockwise_from_right": 0.0,
+      "raw_camera_rectified_angle_deg": 15.68653,
+      "orientation_candidate_score": 2.059031,
+      "orientation_line_support": 3096.155,
+      "grounded_alignment_deg": 15.68653,
+      "building_ground_center_source_px": [
+        214.0,
+        729.0
+      ],
+      "visible_side_ground_midpoint_source_px": [
+        363.8,
+        742.0
+      ],
+      "visible_short_end_ground_corners_source_px": [
+        [
+          342.4,
+          742.0
+        ],
+        [
+          385.2,
+          742.0
+        ]
+      ],
+      "short_end_corners_confidence": 0.8,
+      "short_end_corner_midpoint_residual_px": 0.0,
+      "visual_cues": "ridge along roof top, visible short end wall with vertical posts, base corners inferred from posts",
+      "confidence": 0.9
+    },
+    {
+      "id": "House_02",
+      "candidate_id": "I",
+      "visible_side_horizontal": "left",
+      "visible_side_depth": "nearer",
+      "clock": "7:00",
+      "clock_hour": 7.0,
+      "top_view_angle_deg_clockwise_from_right": 120.0,
+      "raw_camera_rectified_angle_deg": 148.845353,
+      "orientation_candidate_score": 1.963518,
+      "orientation_line_support": 3654.797,
+      "grounded_alignment_deg": 28.845353,
+      "building_ground_center_source_px": [
+        1025.0,
+        864.0
+      ],
+      "visible_side_ground_midpoint_source_px": [
+        888.5,
+        889.5
+      ],
+      "visible_short_end_ground_corners_source_px": [
+        [
+          861.2,
+          889.5
+        ],
+        [
+          915.8,
+          889.5
+        ]
+      ],
+      "short_end_corners_confidence": 0.8,
+      "short_end_corner_midpoint_residual_px": 0.0,
+      "visual_cues": "ridge along roof top, visible short end wall with vertical supports, base corners inferred from wall edges",
+      "confidence": 0.9
+    },
+    {
+      "id": "House_03",
+      "candidate_id": "H",
+      "visible_side_horizontal": "left",
+      "visible_side_depth": "nearer",
+      "clock": "6:30",
+      "clock_hour": 6.5,
+      "top_view_angle_deg_clockwise_from_right": 105.0,
+      "raw_camera_rectified_angle_deg": 117.672178,
+      "orientation_candidate_score": 2.073205,
+      "orientation_line_support": 2907.01,
+      "grounded_alignment_deg": 12.672178,
+      "building_ground_center_source_px": [
+        254.8,
+        774.2
+      ],
+      "visible_side_ground_midpoint_source_px": [
+        154.0,
+        833.6
+      ],
+      "visible_short_end_ground_corners_source_px": [
+        [
+          128.8,
+          833.6
+        ],
+        [
+          179.2,
+          833.6
+        ]
+      ],
+      "short_end_corners_confidence": 0.8,
+      "short_end_corner_midpoint_residual_px": 0.0,
+      "visual_cues": "ridge along top edge, short end wall at left with vertical supports, base corners inferred from wall edges",
+      "confidence": 0.9
+    },
+    {
+      "id": "House_04",
+      "candidate_id": "C",
+      "visible_side_horizontal": "right",
+      "visible_side_depth": "nearer",
+      "clock": "4:00",
+      "clock_hour": 4.0,
+      "top_view_angle_deg_clockwise_from_right": 30.0,
+      "raw_camera_rectified_angle_deg": 26.795604,
+      "orientation_candidate_score": 1.992285,
+      "orientation_line_support": 742.983,
+      "grounded_alignment_deg": 3.204396,
+      "building_ground_center_source_px": [
+        799.0,
+        808.0
+      ],
+      "visible_side_ground_midpoint_source_px": [
+        968.8,
+        834.5
+      ],
+      "visible_short_end_ground_corners_source_px": [
+        [
+          912.2,
+          834.5
+        ],
+        [
+          1025.4,
+          834.5
+        ]
+      ],
+      "short_end_corners_confidence": 0.8,
+      "short_end_corner_midpoint_residual_px": 0.0,
+      "visual_cues": "ridge along roof top, short end wall with vertical posts, corners inferred from post bases",
+      "confidence": 0.9
+    }
+  ],
+  "release_export": {
+    "original_sha256": "87ada60d885cae8d737f3f076c96006f8e072ad64195fa8a24ac746bdec149ff",
+    "paths_sanitized": true,
+    "note": "Historical model output, not fresh inference. Archive paths are provenance labels, not included files.",
+    "original_detection_sha256": "27a6f3fd409941b44217e595951c202ba0354e881250b49a795787185f5a05de"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "house_front": "#E64B35",
+  "house_back": "#4C78A8",
+  "house_left": "#59A14F",
+  "house_right": "#F28E2B",
+  "house_top": "#EDC948",
+  "mountain": "#7A9E6C",
+  "water": "#76A5D8",
+  "tree": "#3D6B47",
+  "tree_mass": "#628B5D",
+  "unknown": "#B0B0B0"
+}

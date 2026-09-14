@@ -1,0 +1,1177 @@
+{
+  "image": "archive/legacy/inputs/scene_02_pond_house.png",
+  "image_size": [
+    1298,
+    1292
+  ],
+  "stage": "automatic_whole_building_instance_parsing",
+  "models": {
+    "proposal_detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+    "semantic_proposal_models": [
+      "Qwen/Qwen3-VL-8B-Instruct"
+    ],
+    "proposal_classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+    "visible_region_segmenter": "facebook/sam2.1-hiera-small"
+  },
+  "settings": {
+    "detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+    "classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+    "sam_model": "facebook/sam2.1-hiera-small",
+    "semantic_proposal_models": [
+      "Qwen/Qwen3-VL-8B-Instruct"
+    ],
+    "device": "cuda:1",
+    "detector_confidence": 0.03,
+    "classifier_confidence": 0.02,
+    "box_nms_iou": 0.25,
+    "mask_containment": 0.6,
+    "box_containment": 0.68,
+    "sam_confidence": 0.4,
+    "small_fragment_area_ratio": 0.006,
+    "small_fragment_fill_ratio": 0.35,
+    "awning_aspect_ratio": 2.7,
+    "awning_fill_ratio": 0.5,
+    "parent_child_containment": 0.74,
+    "split_child_confidence": 0.85,
+    "split_child_max_iou": 0.32,
+    "split_child_min_separation": 0.18,
+    "split_child_max_area_fraction": 0.82,
+    "split_child_combined_area": 0.65,
+    "image_size": 1280,
+    "raw_proposals": 20,
+    "proposals_with_context_variants": 20,
+    "whole_building_context_variants": false,
+    "proposal_caches": [
+      "archive/legacy/whole_building_grounding/scene_02_pond_house_whole_buildings.json",
+      "archive/legacy/automatic_proposals_v2/scene_02_pond_house_yolo.json"
+    ]
+  },
+  "count": 2,
+  "instances": [
+    {
+      "bbox": [
+        565.85,
+        643.42,
+        851.81,
+        808.71
+      ],
+      "detector_score": 0.028549,
+      "proposal_source": "full",
+      "sam_predicted_iou": 0.648787,
+      "mask_area_pixels": 20485,
+      "mask_area_ratio": 0.01221515,
+      "mask_bbox": [
+        579,
+        643,
+        855,
+        810
+      ],
+      "classifier_building_score": 0.971089,
+      "classifier_decision": "building",
+      "id": "House_01",
+      "model_agreement_score": 0.01798672,
+      "mask_fill_ratio": 0.444437,
+      "mask_aspect_ratio": 1.652695,
+      "visible_region_polygons": [
+        [
+          [
+            579,
+            728
+          ],
+          [
+            581,
+            746
+          ],
+          [
+            599,
+            751
+          ],
+          [
+            607,
+            764
+          ],
+          [
+            602,
+            769
+          ],
+          [
+            606,
+            775
+          ],
+          [
+            611,
+            775
+          ],
+          [
+            607,
+            772
+          ],
+          [
+            611,
+            755
+          ],
+          [
+            618,
+            762
+          ],
+          [
+            618,
+            775
+          ],
+          [
+            624,
+            776
+          ],
+          [
+            631,
+            757
+          ],
+          [
+            672,
+            756
+          ],
+          [
+            687,
+            750
+          ],
+          [
+            689,
+            756
+          ],
+          [
+            706,
+            755
+          ],
+          [
+            712,
+            768
+          ],
+          [
+            716,
+            756
+          ],
+          [
+            722,
+            766
+          ],
+          [
+            729,
+            756
+          ],
+          [
+            789,
+            757
+          ],
+          [
+            791,
+            766
+          ],
+          [
+            785,
+            769
+          ],
+          [
+            789,
+            782
+          ],
+          [
+            795,
+            775
+          ],
+          [
+            791,
+            769
+          ],
+          [
+            797,
+            761
+          ],
+          [
+            803,
+            761
+          ],
+          [
+            807,
+            769
+          ],
+          [
+            801,
+            779
+          ],
+          [
+            806,
+            781
+          ],
+          [
+            812,
+            775
+          ],
+          [
+            819,
+            778
+          ],
+          [
+            822,
+            807
+          ],
+          [
+            828,
+            809
+          ],
+          [
+            837,
+            774
+          ],
+          [
+            837,
+            742
+          ],
+          [
+            843,
+            734
+          ],
+          [
+            842,
+            701
+          ],
+          [
+            818,
+            672
+          ],
+          [
+            788,
+            655
+          ],
+          [
+            747,
+            644
+          ],
+          [
+            722,
+            643
+          ],
+          [
+            696,
+            648
+          ],
+          [
+            687,
+            657
+          ],
+          [
+            708,
+            692
+          ],
+          [
+            708,
+            705
+          ],
+          [
+            651,
+            707
+          ],
+          [
+            642,
+            717
+          ],
+          [
+            646,
+            724
+          ],
+          [
+            630,
+            725
+          ],
+          [
+            626,
+            716
+          ],
+          [
+            613,
+            719
+          ],
+          [
+            622,
+            722
+          ],
+          [
+            621,
+            728
+          ],
+          [
+            589,
+            725
+          ],
+          [
+            585,
+            719
+          ]
+        ],
+        [
+          [
+            748,
+            769
+          ],
+          [
+            745,
+            770
+          ],
+          [
+            741,
+            777
+          ],
+          [
+            741,
+            780
+          ],
+          [
+            745,
+            785
+          ],
+          [
+            740,
+            789
+          ],
+          [
+            734,
+            789
+          ],
+          [
+            732,
+            791
+          ],
+          [
+            732,
+            794
+          ],
+          [
+            734,
+            790
+          ],
+          [
+            748,
+            790
+          ]
+        ],
+        [
+          [
+            722,
+            775
+          ],
+          [
+            719,
+            779
+          ],
+          [
+            722,
+            786
+          ],
+          [
+            726,
+            780
+          ],
+          [
+            725,
+            776
+          ]
+        ]
+      ]
+    },
+    {
+      "bbox": [
+        230.19,
+        691.59,
+        759.53,
+        833.56
+      ],
+      "detector_score": 0.189575,
+      "proposal_source": "full",
+      "sam_predicted_iou": 0.664807,
+      "mask_area_pixels": 49374,
+      "mask_area_ratio": 0.02944158,
+      "mask_bbox": [
+        254,
+        704,
+        770,
+        861
+      ],
+      "classifier_building_score": 0.998094,
+      "classifier_decision": "building",
+      "id": "House_02",
+      "model_agreement_score": 0.12579057,
+      "mask_fill_ratio": 0.609465,
+      "mask_aspect_ratio": 3.286624,
+      "visible_region_polygons": [
+        [
+          [
+            769,
+            749
+          ],
+          [
+            751,
+            745
+          ],
+          [
+            755,
+            729
+          ],
+          [
+            717,
+            705
+          ],
+          [
+            591,
+            717
+          ],
+          [
+            568,
+            724
+          ],
+          [
+            564,
+            732
+          ],
+          [
+            528,
+            727
+          ],
+          [
+            468,
+            734
+          ],
+          [
+            459,
+            741
+          ],
+          [
+            429,
+            725
+          ],
+          [
+            423,
+            712
+          ],
+          [
+            369,
+            713
+          ],
+          [
+            305,
+            748
+          ],
+          [
+            300,
+            830
+          ],
+          [
+            322,
+            849
+          ],
+          [
+            327,
+            837
+          ],
+          [
+            383,
+            840
+          ],
+          [
+            398,
+            828
+          ],
+          [
+            402,
+            834
+          ],
+          [
+            422,
+            828
+          ],
+          [
+            433,
+            839
+          ],
+          [
+            438,
+            829
+          ],
+          [
+            446,
+            835
+          ],
+          [
+            443,
+            841
+          ],
+          [
+            446,
+            836
+          ],
+          [
+            454,
+            840
+          ],
+          [
+            459,
+            829
+          ],
+          [
+            461,
+            840
+          ],
+          [
+            469,
+            836
+          ],
+          [
+            476,
+            846
+          ],
+          [
+            469,
+            854
+          ],
+          [
+            469,
+            844
+          ],
+          [
+            445,
+            850
+          ],
+          [
+            465,
+            860
+          ],
+          [
+            486,
+            850
+          ],
+          [
+            489,
+            838
+          ],
+          [
+            501,
+            846
+          ],
+          [
+            565,
+            835
+          ],
+          [
+            569,
+            818
+          ],
+          [
+            582,
+            817
+          ],
+          [
+            586,
+            805
+          ],
+          [
+            605,
+            793
+          ],
+          [
+            643,
+            802
+          ],
+          [
+            664,
+            795
+          ],
+          [
+            670,
+            806
+          ],
+          [
+            692,
+            816
+          ],
+          [
+            717,
+            809
+          ],
+          [
+            732,
+            814
+          ],
+          [
+            742,
+            807
+          ],
+          [
+            753,
+            815
+          ],
+          [
+            757,
+            802
+          ],
+          [
+            764,
+            805
+          ],
+          [
+            765,
+            769
+          ],
+          [
+            752,
+            763
+          ]
+        ],
+        [
+          [
+            260,
+            757
+          ],
+          [
+            259,
+            764
+          ],
+          [
+            254,
+            774
+          ],
+          [
+            256,
+            779
+          ],
+          [
+            255,
+            797
+          ],
+          [
+            256,
+            806
+          ],
+          [
+            259,
+            809
+          ],
+          [
+            257,
+            814
+          ],
+          [
+            261,
+            819
+          ],
+          [
+            260,
+            825
+          ],
+          [
+            264,
+            829
+          ],
+          [
+            264,
+            836
+          ],
+          [
+            266,
+            836
+          ],
+          [
+            273,
+            825
+          ],
+          [
+            274,
+            810
+          ],
+          [
+            270,
+            801
+          ],
+          [
+            272,
+            796
+          ],
+          [
+            272,
+            788
+          ],
+          [
+            274,
+            784
+          ],
+          [
+            274,
+            769
+          ],
+          [
+            271,
+            763
+          ],
+          [
+            265,
+            764
+          ]
+        ],
+        [
+          [
+            626,
+            810
+          ],
+          [
+            633,
+            810
+          ],
+          [
+            641,
+            813
+          ],
+          [
+            646,
+            813
+          ],
+          [
+            654,
+            810
+          ],
+          [
+            646,
+            806
+          ],
+          [
+            637,
+            806
+          ],
+          [
+            632,
+            809
+          ]
+        ]
+      ]
+    }
+  ],
+  "rejected": {
+    "sam_quality": [],
+    "whole_building_structure": [],
+    "classifier": [],
+    "merged_vlm_parent": [
+      {
+        "bbox": [
+          301.14,
+          635.66,
+          852.79,
+          848.84
+        ],
+        "detector_score": 0.99,
+        "proposal_source": "qwen3_vl_whole_building_grounding:full",
+        "sam_predicted_iou": 0.88794,
+        "mask_area_pixels": 88032,
+        "mask_area_ratio": 0.05249324,
+        "mask_bbox": [
+          301,
+          640,
+          840,
+          872
+        ],
+        "classifier_building_score": 0.993224,
+        "classifier_decision": "building",
+        "rejection_reason": "vlm_group_box_split_by_distinct_complete_children",
+        "supporting_child_bboxes": [
+          [
+            565.85,
+            643.42,
+            851.81,
+            808.71
+          ],
+          [
+            230.19,
+            691.59,
+            759.53,
+            833.56
+          ]
+        ]
+      },
+      {
+        "bbox": [
+          301.99,
+          632.88,
+          715.23,
+          769.12
+        ],
+        "detector_score": 0.99,
+        "proposal_source": "qwen3_vl_whole_building_grounding:tile_r0_c0",
+        "sam_predicted_iou": 0.885052,
+        "mask_area_pixels": 30296,
+        "mask_area_ratio": 0.01806542,
+        "mask_bbox": [
+          320,
+          638,
+          719,
+          760
+        ],
+        "classifier_building_score": 0.989493,
+        "classifier_decision": "building",
+        "rejection_reason": "redundant_vlm_subbox_after_parent_decomposition"
+      },
+      {
+        "bbox": [
+          386.86,
+          679.93,
+          623.65,
+          873.61
+        ],
+        "detector_score": 0.09552,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.773922,
+        "mask_area_pixels": 25348,
+        "mask_area_ratio": 0.01511494,
+        "mask_bbox": [
+          379,
+          673,
+          619,
+          866
+        ],
+        "classifier_building_score": 0.999819,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          324.5,
+          666.24,
+          863.98,
+          832.55
+        ],
+        "detector_score": 0.072266,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.788755,
+        "mask_area_pixels": 71365,
+        "mask_area_ratio": 0.04255475,
+        "mask_bbox": [
+          321,
+          643,
+          857,
+          842
+        ],
+        "classifier_building_score": 0.999053,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          371.15,
+          692.6,
+          680.44,
+          832.55
+        ],
+        "detector_score": 0.062683,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.652403,
+        "mask_area_pixels": 28884,
+        "mask_area_ratio": 0.01722345,
+        "mask_bbox": [
+          339,
+          703,
+          693,
+          847
+        ],
+        "classifier_building_score": 0.993877,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          454.55,
+          664.21,
+          776.77,
+          789.95
+        ],
+        "detector_score": 0.056549,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.537734,
+        "mask_area_pixels": 21605,
+        "mask_area_ratio": 0.012883,
+        "mask_bbox": [
+          421,
+          643,
+          758,
+          761
+        ],
+        "classifier_building_score": 0.994656,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          457.34,
+          677.39,
+          681.45,
+          875.14
+        ],
+        "detector_score": 0.035828,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.620006,
+        "mask_area_pixels": 21330,
+        "mask_area_ratio": 0.01271902,
+        "mask_bbox": [
+          443,
+          685,
+          697,
+          866
+        ],
+        "classifier_building_score": 0.990421,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          271.77,
+          689.56,
+          534.41,
+          853.84
+        ],
+        "detector_score": 0.026764,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.79708,
+        "mask_area_pixels": 29489,
+        "mask_area_ratio": 0.01758421,
+        "mask_bbox": [
+          268,
+          697,
+          551,
+          861
+        ],
+        "classifier_building_score": 0.999057,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          557.73,
+          653.06,
+          744.32,
+          859.93
+        ],
+        "detector_score": 0.023422,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.536761,
+        "mask_area_pixels": 20581,
+        "mask_area_ratio": 0.01227239,
+        "mask_bbox": [
+          577,
+          647,
+          756,
+          851
+        ],
+        "classifier_building_score": 0.977119,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          733.17,
+          667.25,
+          1033.33,
+          829.5
+        ],
+        "detector_score": 0.023376,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.818737,
+        "mask_area_pixels": 27061,
+        "mask_area_ratio": 0.0161364,
+        "mask_bbox": [
+          716,
+          697,
+          1012,
+          824
+        ],
+        "classifier_building_score": 0.804544,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          410.7,
+          675.87,
+          722.01,
+          802.63
+        ],
+        "detector_score": 0.018051,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.702135,
+        "mask_area_pixels": 21261,
+        "mask_area_ratio": 0.01267788,
+        "mask_bbox": [
+          387,
+          653,
+          718,
+          761
+        ],
+        "classifier_building_score": 0.997218,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          367.6,
+          687.03,
+          556.21,
+          880.71
+        ],
+        "detector_score": 0.017715,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.746098,
+        "mask_area_pixels": 25031,
+        "mask_area_ratio": 0.01492592,
+        "mask_bbox": [
+          356,
+          711,
+          576,
+          875
+        ],
+        "classifier_building_score": 0.999827,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          176.95,
+          708.83,
+          475.6,
+          836.6
+        ],
+        "detector_score": 0.015251,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.584633,
+        "mask_area_pixels": 14465,
+        "mask_area_ratio": 0.00862544,
+        "mask_bbox": [
+          255,
+          709,
+          472,
+          838
+        ],
+        "classifier_building_score": 0.020309,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          228.16,
+          697.67,
+          545.57,
+          818.35
+        ],
+        "detector_score": 0.014618,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.625205,
+        "mask_area_pixels": 13233,
+        "mask_area_ratio": 0.0078908,
+        "mask_bbox": [
+          255,
+          710,
+          572,
+          831
+        ],
+        "classifier_building_score": 0.990585,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          145.52,
+          700.21,
+          652.04,
+          880.71
+        ],
+        "detector_score": 0.013588,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.826587,
+        "mask_area_pixels": 43675,
+        "mask_area_ratio": 0.02604328,
+        "mask_bbox": [
+          174,
+          713,
+          663,
+          879
+        ],
+        "classifier_building_score": 0.998276,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          525.28,
+          1118.51,
+          601.34,
+          1195.58
+        ],
+        "detector_score": 0.012337,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.672562,
+        "mask_area_pixels": 5625,
+        "mask_area_ratio": 0.00335417,
+        "mask_bbox": [
+          520,
+          1120,
+          613,
+          1200
+        ],
+        "classifier_building_score": 0.650771,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          546.58,
+          615.03,
+          829.5,
+          752.94
+        ],
+        "detector_score": 0.011963,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.731587,
+        "mask_area_pixels": 12650,
+        "mask_area_ratio": 0.00754316,
+        "mask_bbox": [
+          574,
+          632,
+          839,
+          742
+        ],
+        "classifier_building_score": 0.995916,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          191.02,
+          645.96,
+          413.23,
+          812.26
+        ],
+        "detector_score": 0.01078,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.607767,
+        "mask_area_pixels": 17452,
+        "mask_area_ratio": 0.01040658,
+        "mask_bbox": [
+          174,
+          659,
+          421,
+          833
+        ],
+        "classifier_building_score": 0.42661,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      }
+    ],
+    "mask_containment": []
+  },
+  "release_export": {
+    "original_sha256": "020c9b3437f0e113445a559873868c560c142e8fa310e56bb285e22fe58a43ac",
+    "paths_sanitized": true,
+    "note": "Historical model output, not fresh inference. Archive paths are provenance labels, not included files."
+  }
+}

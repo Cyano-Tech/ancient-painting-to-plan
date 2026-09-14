@@ -1,0 +1,59 @@
+name: Offline validation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cpu-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.12']
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      ANCIENTPLAN_CONFIG: /tmp/ancientplan-ci-no-cloud-config.json
+      ANCIENTPLAN_RUNS_DIR: artifacts/unused-cloud-runs
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: System CPU renderer and fonts
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libcairo2 fonts-noto-cjk
+      - name: Install locked CPU dependencies
+        run: |
+          python -m pip install --require-hashes -r requirements.lock
+          python -m pip install --no-deps -e .
+      - name: Style and unit tests (network denied by test fixture)
+        run: |
+          ruff check src tests scripts
+          ruff format --check src tests scripts
+          python -m pytest -q --junitxml=artifacts/pytest.xml
+      - name: Replay both methods without models
+        run: |
+          python scripts/replay_examples.py all --output artifacts/replay
+          python -m ancientplan.cuboid3d.validate_outputs artifacts/replay/cuboid3d
+      - name: Publication checks and wheel
+        run: |
+          python scripts/check_release.py
+          python -m build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: cpu-validation-${{ matrix.python-version }}
+          path: |
+            artifacts/pytest.xml
+            artifacts/replay/**/replay_report.json
+            artifacts/replay/**/geometry_report.json
+          retention-days: 14

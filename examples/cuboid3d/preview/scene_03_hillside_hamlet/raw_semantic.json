@@ -1,0 +1,505 @@
+{
+  "scene_id": "scene_03_hillside_hamlet",
+  "stage": "cuboid_derived_preliminary_semantics",
+  "image_size": [
+    1294,
+    1286
+  ],
+  "coordinate_system": "pixel_xy_origin_top_left",
+  "palette": {
+    "house_front": "#E64B35",
+    "house_back": "#4C78A8",
+    "house_left": "#59A14F",
+    "house_right": "#F28E2B",
+    "house_top": "#EDC948",
+    "mountain": "#7A9E6C",
+    "water": "#76A5D8",
+    "tree": "#3D6B47",
+    "tree_mass": "#628B5D",
+    "unknown": "#B0B0B0"
+  },
+  "instances": [
+    {
+      "id": "House_01",
+      "class": "House",
+      "whole_house_bbox": [
+        779.3,
+        815.37,
+        1014.7,
+        902.53
+      ],
+      "visible_faces": {
+        "front": [
+          [
+            [
+              1008.1,
+              849.77
+            ],
+            [
+              785.9,
+              850.77
+            ],
+            [
+              784.9,
+              817.97
+            ],
+            [
+              1009.1,
+              817.97
+            ]
+          ]
+        ],
+        "left": [
+          [
+            [
+              1013.4,
+              902.53
+            ],
+            [
+              1011.75,
+              845.47
+            ],
+            [
+              1008.45,
+              816.67
+            ],
+            [
+              1006.8,
+              872.08
+            ]
+          ]
+        ],
+        "top": [
+          [
+            [
+              1012.4,
+              815.37
+            ],
+            [
+              781.6,
+              815.37
+            ],
+            [
+              779.3,
+              872.73
+            ],
+            [
+              1014.7,
+              875.03
+            ]
+          ]
+        ]
+      },
+      "door_evidence": true,
+      "inferred_ground_contact": [
+        897.0,
+        874.0
+      ]
+    },
+    {
+      "id": "House_02",
+      "class": "House",
+      "whole_house_bbox": [
+        579.25,
+        929.8,
+        860.75,
+        1132.56
+      ],
+      "visible_faces": {
+        "front": [
+          [
+            [
+              818.1,
+              998.14
+            ],
+            [
+              582.9,
+              1081.77
+            ],
+            [
+              579.6,
+              1018.73
+            ],
+            [
+              811.5,
+              933.45
+            ]
+          ]
+        ],
+        "right": [
+          [
+            [
+              583.55,
+              1080.47
+            ],
+            [
+              623.9,
+              1132.56
+            ],
+            [
+              621.6,
+              1076.42
+            ],
+            [
+              585.85,
+              1026.63
+            ]
+          ]
+        ],
+        "top": [
+          [
+            [
+              813.8,
+              929.8
+            ],
+            [
+              579.25,
+              1023.03
+            ],
+            [
+              628.2,
+              1076.12
+            ],
+            [
+              860.75,
+              981.89
+            ]
+          ]
+        ]
+      },
+      "door_evidence": true,
+      "inferred_ground_contact": [
+        720.5,
+        1066.0
+      ]
+    },
+    {
+      "id": "Mountain_01",
+      "class": "Mountain",
+      "polygons": [
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1294.0,
+            0.0
+          ],
+          [
+            1294.0,
+            823.04
+          ],
+          [
+            1190.48,
+            784.46
+          ],
+          [
+            1022.26,
+            823.04
+          ],
+          [
+            854.04,
+            784.46
+          ],
+          [
+            685.82,
+            835.9
+          ],
+          [
+            543.48,
+            797.32
+          ],
+          [
+            362.32,
+            861.62
+          ],
+          [
+            181.16,
+            823.04
+          ],
+          [
+            0.0,
+            848.76
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "Mountain_02",
+      "class": "Mountain",
+      "polygons": [
+        [
+          [
+            0.0,
+            887.34
+          ],
+          [
+            232.92,
+            861.62
+          ],
+          [
+            414.08,
+            900.2
+          ],
+          [
+            621.12,
+            951.64
+          ],
+          [
+            815.22,
+            925.92
+          ],
+          [
+            1022.26,
+            861.62
+          ],
+          [
+            1294.0,
+            771.6
+          ],
+          [
+            1294.0,
+            1118.82
+          ],
+          [
+            1099.9,
+            1131.68
+          ],
+          [
+            854.04,
+            1105.96
+          ],
+          [
+            634.06,
+            1144.54
+          ],
+          [
+            362.32,
+            1105.96
+          ],
+          [
+            0.0,
+            1131.68
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "Water_01",
+      "class": "Water",
+      "polygons": [
+        [
+          [
+            0.0,
+            1003.08
+          ],
+          [
+            232.92,
+            990.22
+          ],
+          [
+            478.78,
+            1028.8
+          ],
+          [
+            608.18,
+            1093.1
+          ],
+          [
+            504.66,
+            1144.54
+          ],
+          [
+            245.86,
+            1105.96
+          ],
+          [
+            0.0,
+            1080.24
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "TreeMass_01",
+      "class": "TreeMass",
+      "polygons": [
+        [
+          [
+            0.0,
+            347.22
+          ],
+          [
+            349.38,
+            347.22
+          ],
+          [
+            452.9,
+            784.46
+          ],
+          [
+            245.86,
+            900.2
+          ],
+          [
+            0.0,
+            848.76
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "TreeMass_02",
+      "class": "TreeMass",
+      "polygons": [
+        [
+          [
+            659.94,
+            102.88
+          ],
+          [
+            1086.96,
+            51.44
+          ],
+          [
+            1177.54,
+            745.88
+          ],
+          [
+            983.44,
+            900.2
+          ],
+          [
+            763.46,
+            745.88
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "TreeMass_03",
+      "class": "TreeMass",
+      "polygons": [
+        [
+          [
+            996.38,
+            192.9
+          ],
+          [
+            1294.0,
+            218.62
+          ],
+          [
+            1294.0,
+            900.2
+          ],
+          [
+            1138.72,
+            887.34
+          ],
+          [
+            1048.14,
+            655.86
+          ]
+        ]
+      ]
+    }
+  ],
+  "occlusion_relations": [
+    {
+      "front_id": "Mountain_02",
+      "behind_id": "House_01",
+      "confidence": 0.92
+    },
+    {
+      "front_id": "Mountain_02",
+      "behind_id": "House_02",
+      "confidence": 0.76
+    },
+    {
+      "front_id": "House_02",
+      "behind_id": "House_01",
+      "confidence": 0.68
+    }
+  ],
+  "independent_face_segmentation": false,
+  "synthetic_boundary_jitter": true,
+  "scene_priors": "Explicit camera/terrain assumptions supplied in scene configuration",
+  "automatic_whole_house_parsing": {
+    "source": "house_detection/scene_03_hillside_hamlet_building_instances.json",
+    "method": "Qwen3-VL-8B multiscale whole-building grounding + YOLO child evidence -> SAM 2.1 -> RGB classifier -> compound parent decomposition -> containment and structure filters; then an independent larger VLM pass infers directed per-building orientation",
+    "models": {
+      "proposal_detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+      "semantic_proposal_models": [
+        "Qwen/Qwen3-VL-8B-Instruct"
+      ],
+      "proposal_classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+      "visible_region_segmenter": "facebook/sam2.1-hiera-small",
+      "independent_orientation_model": "Qwen/Qwen3-VL-32B-Instruct-FP8"
+    },
+    "settings": {
+      "detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+      "classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+      "sam_model": "facebook/sam2.1-hiera-small",
+      "semantic_proposal_models": [
+        "Qwen/Qwen3-VL-8B-Instruct"
+      ],
+      "device": "cuda:1",
+      "detector_confidence": 0.03,
+      "classifier_confidence": 0.02,
+      "box_nms_iou": 0.25,
+      "mask_containment": 0.6,
+      "box_containment": 0.68,
+      "sam_confidence": 0.4,
+      "small_fragment_area_ratio": 0.006,
+      "small_fragment_fill_ratio": 0.35,
+      "awning_aspect_ratio": 2.7,
+      "awning_fill_ratio": 0.5,
+      "parent_child_containment": 0.74,
+      "split_child_confidence": 0.85,
+      "split_child_max_iou": 0.32,
+      "split_child_min_separation": 0.18,
+      "split_child_max_area_fraction": 0.82,
+      "split_child_combined_area": 0.65,
+      "image_size": 1280,
+      "raw_proposals": 2,
+      "proposals_with_context_variants": 2,
+      "whole_building_context_variants": false,
+      "proposal_caches": [
+        "archive/legacy/whole_building_grounding/scene_03_hillside_hamlet_whole_buildings.json",
+        "archive/legacy/automatic_proposals_v2/scene_03_hillside_hamlet_yolo.json"
+      ]
+    },
+    "detected_count": 2,
+    "cuboid_observation_count": 2,
+    "count_matches": true,
+    "geometry_observations_derived_from_detection": true,
+    "orientation_source": "building_orientation/scene_03_hillside_hamlet_building_orientations.json",
+    "orientation_method": "second_stage_vlm_grounded_visible_end_corners_plus_mask_structural_axis_fusion",
+    "orientation_definition": {
+      "axis": "building_long_ground_axis_in_rectified_orthographic_top_view",
+      "vlm_output": "grounded_center_visible_short_end_midpoint_and_ground_corners",
+      "camera_rectification": {
+        "projection": "orthographic",
+        "pitch_deg": 18.0,
+        "azimuth_deg": 0.0,
+        "roll_deg": 0
+      },
+      "top_view_mapping": {
+        "painting_right": "right",
+        "painting_far_upper": "up"
+      },
+      "clock_reference": {
+        "12": "up",
+        "3": "right",
+        "6": "down",
+        "9": "left"
+      },
+      "directed_endpoint": "visible_left_or_right_short_end",
+      "range": "full_12_hour_clock",
+      "quantization_minutes": 30
+    },
+    "orientation_count_matches": true
+  }
+}

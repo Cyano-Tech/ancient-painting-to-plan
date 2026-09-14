@@ -1,0 +1,1284 @@
+{
+  "image": "archive/legacy/inputs/scene_01_compound.png",
+  "image_size": [
+    1298,
+    1292
+  ],
+  "stage": "automatic_whole_building_instance_parsing",
+  "models": {
+    "proposal_detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+    "semantic_proposal_models": [
+      "Qwen/Qwen3-VL-8B-Instruct"
+    ],
+    "proposal_classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+    "visible_region_segmenter": "facebook/sam2.1-hiera-small"
+  },
+  "settings": {
+    "detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+    "classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+    "sam_model": "facebook/sam2.1-hiera-small",
+    "semantic_proposal_models": [
+      "Qwen/Qwen3-VL-8B-Instruct"
+    ],
+    "device": "cuda:1",
+    "detector_confidence": 0.03,
+    "classifier_confidence": 0.02,
+    "box_nms_iou": 0.25,
+    "mask_containment": 0.6,
+    "box_containment": 0.68,
+    "sam_confidence": 0.4,
+    "small_fragment_area_ratio": 0.006,
+    "small_fragment_fill_ratio": 0.35,
+    "awning_aspect_ratio": 2.7,
+    "awning_fill_ratio": 0.5,
+    "parent_child_containment": 0.74,
+    "split_child_confidence": 0.85,
+    "split_child_max_iou": 0.32,
+    "split_child_min_separation": 0.18,
+    "split_child_max_area_fraction": 0.82,
+    "split_child_combined_area": 0.65,
+    "image_size": 1280,
+    "raw_proposals": 31,
+    "proposals_with_context_variants": 31,
+    "whole_building_context_variants": false,
+    "proposal_caches": [
+      "archive/legacy/whole_building_grounding/scene_01_compound_whole_buildings.json",
+      "archive/legacy/automatic_proposals_v2/scene_01_compound_yolo.json"
+    ]
+  },
+  "count": 4,
+  "instances": [
+    {
+      "bbox": [
+        0.0,
+        607.24,
+        327.1,
+        749.36
+      ],
+      "detector_score": 0.5,
+      "proposal_source": "qwen3_vl_whole_building_grounding:full",
+      "sam_predicted_iou": 0.905714,
+      "mask_area_pixels": 34915,
+      "mask_area_ratio": 0.02081972,
+      "mask_bbox": [
+        0,
+        609,
+        317,
+        745
+      ],
+      "classifier_building_score": 0.989439,
+      "classifier_decision": "building",
+      "id": "House_01",
+      "model_agreement_score": 0.44807438,
+      "mask_fill_ratio": 0.809867,
+      "mask_aspect_ratio": 2.330882,
+      "visible_region_polygons": [
+        [
+          [
+            316,
+            642
+          ],
+          [
+            311,
+            628
+          ],
+          [
+            302,
+            623
+          ],
+          [
+            295,
+            611
+          ],
+          [
+            288,
+            609
+          ],
+          [
+            168,
+            613
+          ],
+          [
+            149,
+            618
+          ],
+          [
+            106,
+            617
+          ],
+          [
+            49,
+            623
+          ],
+          [
+            34,
+            628
+          ],
+          [
+            12,
+            647
+          ],
+          [
+            0,
+            669
+          ],
+          [
+            0,
+            687
+          ],
+          [
+            3,
+            688
+          ],
+          [
+            0,
+            697
+          ],
+          [
+            5,
+            700
+          ],
+          [
+            7,
+            717
+          ],
+          [
+            19,
+            716
+          ],
+          [
+            19,
+            709
+          ],
+          [
+            24,
+            708
+          ],
+          [
+            23,
+            720
+          ],
+          [
+            14,
+            729
+          ],
+          [
+            19,
+            739
+          ],
+          [
+            32,
+            743
+          ],
+          [
+            133,
+            742
+          ],
+          [
+            203,
+            736
+          ],
+          [
+            220,
+            739
+          ],
+          [
+            251,
+            734
+          ],
+          [
+            292,
+            708
+          ],
+          [
+            294,
+            699
+          ],
+          [
+            287,
+            695
+          ],
+          [
+            284,
+            687
+          ],
+          [
+            291,
+            679
+          ],
+          [
+            296,
+            662
+          ],
+          [
+            313,
+            660
+          ]
+        ]
+      ]
+    },
+    {
+      "bbox": [
+        864.47,
+        674.42,
+        1229.21,
+        932.82
+      ],
+      "detector_score": 0.5,
+      "proposal_source": "qwen3_vl_whole_building_grounding:full",
+      "sam_predicted_iou": 0.834624,
+      "mask_area_pixels": 44531,
+      "mask_area_ratio": 0.02655371,
+      "mask_bbox": [
+        875,
+        679,
+        1226,
+        947
+      ],
+      "classifier_building_score": 0.9926,
+      "classifier_decision": "building",
+      "id": "House_02",
+      "model_agreement_score": 0.41422389,
+      "mask_fill_ratio": 0.473392,
+      "mask_aspect_ratio": 1.309701,
+      "visible_region_polygons": [
+        [
+          [
+            1223,
+            725
+          ],
+          [
+            1185,
+            692
+          ],
+          [
+            1140,
+            679
+          ],
+          [
+            947,
+            759
+          ],
+          [
+            875,
+            825
+          ],
+          [
+            883,
+            839
+          ],
+          [
+            884,
+            907
+          ],
+          [
+            910,
+            897
+          ],
+          [
+            915,
+            884
+          ],
+          [
+            930,
+            890
+          ],
+          [
+            935,
+            907
+          ],
+          [
+            945,
+            889
+          ],
+          [
+            949,
+            897
+          ],
+          [
+            996,
+            891
+          ],
+          [
+            1016,
+            907
+          ],
+          [
+            1025,
+            879
+          ],
+          [
+            1031,
+            888
+          ],
+          [
+            1052,
+            886
+          ],
+          [
+            1063,
+            875
+          ],
+          [
+            1067,
+            856
+          ],
+          [
+            1080,
+            874
+          ],
+          [
+            1091,
+            865
+          ],
+          [
+            1097,
+            870
+          ],
+          [
+            1098,
+            930
+          ],
+          [
+            1119,
+            946
+          ],
+          [
+            1116,
+            842
+          ],
+          [
+            1125,
+            799
+          ],
+          [
+            1134,
+            798
+          ],
+          [
+            1137,
+            846
+          ],
+          [
+            1148,
+            847
+          ],
+          [
+            1152,
+            784
+          ],
+          [
+            1211,
+            748
+          ],
+          [
+            1224,
+            735
+          ]
+        ]
+      ]
+    },
+    {
+      "bbox": [
+        128.03,
+        682.85,
+        428.25,
+        887.66
+      ],
+      "detector_score": 0.5,
+      "proposal_source": "qwen3_vl_whole_building_grounding:tile_r1_c0",
+      "sam_predicted_iou": 0.891305,
+      "mask_area_pixels": 24163,
+      "mask_area_ratio": 0.01440833,
+      "mask_bbox": [
+        132,
+        690,
+        428,
+        898
+      ],
+      "classifier_building_score": 0.996973,
+      "classifier_decision": "building",
+      "id": "House_03",
+      "model_agreement_score": 0.44430351,
+      "mask_fill_ratio": 0.39246,
+      "mask_aspect_ratio": 1.423077,
+      "visible_region_polygons": [
+        [
+          [
+            426,
+            733
+          ],
+          [
+            399,
+            712
+          ],
+          [
+            362,
+            692
+          ],
+          [
+            317,
+            693
+          ],
+          [
+            258,
+            737
+          ],
+          [
+            239,
+            744
+          ],
+          [
+            239,
+            750
+          ],
+          [
+            230,
+            756
+          ],
+          [
+            229,
+            765
+          ],
+          [
+            247,
+            767
+          ],
+          [
+            275,
+            783
+          ],
+          [
+            273,
+            789
+          ],
+          [
+            232,
+            793
+          ],
+          [
+            205,
+            789
+          ],
+          [
+            184,
+            795
+          ],
+          [
+            134,
+            829
+          ],
+          [
+            133,
+            840
+          ],
+          [
+            139,
+            845
+          ],
+          [
+            166,
+            848
+          ],
+          [
+            169,
+            897
+          ],
+          [
+            175,
+            885
+          ],
+          [
+            176,
+            846
+          ],
+          [
+            315,
+            844
+          ],
+          [
+            330,
+            834
+          ],
+          [
+            343,
+            813
+          ],
+          [
+            362,
+            802
+          ],
+          [
+            380,
+            778
+          ],
+          [
+            421,
+            751
+          ],
+          [
+            426,
+            744
+          ]
+        ],
+        [
+          [
+            222,
+            769
+          ],
+          [
+            210,
+            769
+          ],
+          [
+            210,
+            771
+          ],
+          [
+            207,
+            774
+          ],
+          [
+            205,
+            774
+          ],
+          [
+            216,
+            775
+          ]
+        ]
+      ]
+    },
+    {
+      "bbox": [
+        623.04,
+        710.6,
+        976.1,
+        855.3
+      ],
+      "detector_score": 0.5,
+      "proposal_source": "qwen3_vl_whole_building_grounding:full",
+      "sam_predicted_iou": 0.911196,
+      "mask_area_pixels": 32524,
+      "mask_area_ratio": 0.01939397,
+      "mask_bbox": [
+        633,
+        712,
+        965,
+        851
+      ],
+      "classifier_building_score": 0.983644,
+      "classifier_decision": "building",
+      "id": "House_04",
+      "model_agreement_score": 0.44814624,
+      "mask_fill_ratio": 0.704776,
+      "mask_aspect_ratio": 2.388489,
+      "visible_region_polygons": [
+        [
+          [
+            964,
+            744
+          ],
+          [
+            940,
+            729
+          ],
+          [
+            901,
+            713
+          ],
+          [
+            798,
+            717
+          ],
+          [
+            690,
+            716
+          ],
+          [
+            657,
+            728
+          ],
+          [
+            633,
+            754
+          ],
+          [
+            656,
+            762
+          ],
+          [
+            665,
+            771
+          ],
+          [
+            667,
+            834
+          ],
+          [
+            672,
+            845
+          ],
+          [
+            708,
+            849
+          ],
+          [
+            727,
+            839
+          ],
+          [
+            742,
+            839
+          ],
+          [
+            752,
+            810
+          ],
+          [
+            762,
+            806
+          ],
+          [
+            773,
+            823
+          ],
+          [
+            770,
+            830
+          ],
+          [
+            774,
+            845
+          ],
+          [
+            812,
+            850
+          ],
+          [
+            862,
+            838
+          ],
+          [
+            899,
+            798
+          ]
+        ]
+      ]
+    }
+  ],
+  "rejected": {
+    "sam_quality": [
+      {
+        "bbox": [
+          767.65,
+          747.36,
+          964.37,
+          936.99
+        ],
+        "detector_score": 0.022202,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.21479,
+        "mask_area_pixels": 16310,
+        "mask_area_ratio": 0.00972561,
+        "mask_bbox": [
+          756,
+          723,
+          960,
+          922
+        ],
+        "rejection_reason": "low_sam_mask_quality"
+      }
+    ],
+    "whole_building_structure": [],
+    "classifier": [
+      {
+        "bbox": [
+          240.0,
+          1022.94,
+          286.31,
+          1087.54
+        ],
+        "detector_score": 0.056244,
+        "proposal_source": "tile_r01_c01",
+        "sam_predicted_iou": 0.717418,
+        "mask_area_pixels": 3112,
+        "mask_area_ratio": 0.00185568,
+        "mask_bbox": [
+          238,
+          1016,
+          297,
+          1090
+        ],
+        "classifier_building_score": 0.012964,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          190.77,
+          1007.8,
+          308.62,
+          1096.62
+        ],
+        "detector_score": 0.024185,
+        "proposal_source": "tile_r01_c00",
+        "sam_predicted_iou": 0.801297,
+        "mask_area_pixels": 9092,
+        "mask_area_ratio": 0.00542153,
+        "mask_bbox": [
+          179,
+          1010,
+          317,
+          1095
+        ],
+        "classifier_building_score": 1e-06,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          166.29,
+          1015.37,
+          325.78,
+          1083.0
+        ],
+        "detector_score": 0.021652,
+        "proposal_source": "tile_r01_c00",
+        "sam_predicted_iou": 0.852472,
+        "mask_area_pixels": 11412,
+        "mask_area_ratio": 0.00680494,
+        "mask_bbox": [
+          154,
+          1011,
+          334,
+          1093
+        ],
+        "classifier_building_score": 6.2e-05,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          180.8,
+          977.52,
+          237.58,
+          1033.03
+        ],
+        "detector_score": 0.019119,
+        "proposal_source": "tile_r01_c00",
+        "sam_predicted_iou": 0.702009,
+        "mask_area_pixels": 3183,
+        "mask_area_ratio": 0.00189801,
+        "mask_bbox": [
+          178,
+          976,
+          248,
+          1033
+        ],
+        "classifier_building_score": 0.002616,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          53.75,
+          934.12,
+          149.89,
+          1033.03
+        ],
+        "detector_score": 0.015961,
+        "proposal_source": "tile_r01_c00",
+        "sam_predicted_iou": 0.782833,
+        "mask_area_pixels": 9049,
+        "mask_area_ratio": 0.00539589,
+        "mask_bbox": [
+          38,
+          940,
+          167,
+          1039
+        ],
+        "classifier_building_score": 0.000246,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          198.85,
+          963.14,
+          287.92,
+          1064.33
+        ],
+        "detector_score": 0.014282,
+        "proposal_source": "tile_r01_c00",
+        "sam_predicted_iou": 0.403487,
+        "mask_area_pixels": 7655,
+        "mask_area_ratio": 0.00456466,
+        "mask_bbox": [
+          194,
+          961,
+          290,
+          1068
+        ],
+        "classifier_building_score": 8e-06,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          186.23,
+          992.91,
+          297.77,
+          1067.35
+        ],
+        "detector_score": 0.012192,
+        "proposal_source": "tile_r01_c00",
+        "sam_predicted_iou": 0.785968,
+        "mask_area_pixels": 7469,
+        "mask_area_ratio": 0.00445374,
+        "mask_bbox": [
+          179,
+          996,
+          307,
+          1079
+        ],
+        "classifier_building_score": 0.000249,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          481.24,
+          1008.77,
+          589.24,
+          1034.0
+        ],
+        "detector_score": 0.011162,
+        "proposal_source": "tile_r00_c01",
+        "sam_predicted_iou": 0.762972,
+        "mask_area_pixels": 2542,
+        "mask_area_ratio": 0.00151579,
+        "mask_bbox": [
+          482,
+          1010,
+          602,
+          1039
+        ],
+        "classifier_building_score": 0.000298,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          178.41,
+          1008.81,
+          265.21,
+          1077.45
+        ],
+        "detector_score": 0.01078,
+        "proposal_source": "tile_r01_c00",
+        "sam_predicted_iou": 0.799591,
+        "mask_area_pixels": 5929,
+        "mask_area_ratio": 0.00353545,
+        "mask_bbox": [
+          174,
+          1010,
+          277,
+          1085
+        ],
+        "classifier_building_score": 4.7e-05,
+        "classifier_decision": "not_building"
+      },
+      {
+        "bbox": [
+          392.67,
+          964.9,
+          553.41,
+          1024.45
+        ],
+        "detector_score": 0.01017,
+        "proposal_source": "tile_r01_c01",
+        "sam_predicted_iou": 0.735845,
+        "mask_area_pixels": 9327,
+        "mask_area_ratio": 0.00556166,
+        "mask_bbox": [
+          382,
+          961,
+          572,
+          1028
+        ],
+        "classifier_building_score": 0.000883,
+        "classifier_decision": "not_building"
+      }
+    ],
+    "merged_vlm_parent": [
+      {
+        "bbox": [
+          788.94,
+          687.03,
+          995.81,
+          868.54
+        ],
+        "detector_score": 0.060425,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.72797,
+        "mask_area_pixels": 17959,
+        "mask_area_ratio": 0.0107089,
+        "mask_bbox": [
+          772,
+          712,
+          969,
+          854
+        ],
+        "classifier_building_score": 0.998679,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          868.04,
+          740.27,
+          1058.68,
+          951.19
+        ],
+        "detector_score": 0.047791,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.780188,
+        "mask_area_pixels": 19898,
+        "mask_area_ratio": 0.01186512,
+        "mask_bbox": [
+          878,
+          754,
+          1079,
+          953
+        ],
+        "classifier_building_score": 1.0,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          24.08,
+          625.68,
+          162.0,
+          736.21
+        ],
+        "detector_score": 0.043701,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.803738,
+        "mask_area_pixels": 16230,
+        "mask_area_ratio": 0.0096779,
+        "mask_bbox": [
+          7,
+          622,
+          176,
+          743
+        ],
+        "classifier_building_score": 0.999468,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          229.18,
+          761.56,
+          551.65,
+          885.28
+        ],
+        "detector_score": 0.035217,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.66448,
+        "mask_area_pixels": 408,
+        "mask_area_ratio": 0.00024329,
+        "mask_bbox": [
+          220,
+          749,
+          526,
+          866
+        ],
+        "classifier_building_score": 0.995197,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          93.29,
+          772.72,
+          570.41,
+          941.05
+        ],
+        "detector_score": 0.034241,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.448028,
+        "mask_area_pixels": 40301,
+        "mask_area_ratio": 0.02403137,
+        "mask_bbox": [
+          93,
+          743,
+          548,
+          942
+        ],
+        "classifier_building_score": 0.999665,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          597.28,
+          714.91,
+          927.87,
+          844.71
+        ],
+        "detector_score": 0.028931,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.88818,
+        "mask_area_pixels": 31765,
+        "mask_area_ratio": 0.01894138,
+        "mask_bbox": [
+          620,
+          712,
+          951,
+          850
+        ],
+        "classifier_building_score": 0.987755,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          886.8,
+          750.41,
+          997.33,
+          836.6
+        ],
+        "detector_score": 0.024567,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.746887,
+        "mask_area_pixels": 4906,
+        "mask_area_ratio": 0.00292543,
+        "mask_bbox": [
+          881,
+          756,
+          1004,
+          832
+        ],
+        "classifier_building_score": 0.999761,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          198.25,
+          772.72,
+          471.54,
+          946.12
+        ],
+        "detector_score": 0.023697,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.66849,
+        "mask_area_pixels": 18808,
+        "mask_area_ratio": 0.01121516,
+        "mask_bbox": [
+          187,
+          808,
+          471,
+          940
+        ],
+        "classifier_building_score": 0.995622,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          267.48,
+          420.17,
+          480.46,
+          505.47
+        ],
+        "detector_score": 0.022415,
+        "proposal_source": "tile_r00_c00",
+        "sam_predicted_iou": 0.703931,
+        "mask_area_pixels": 18080,
+        "mask_area_ratio": 0.01078105,
+        "mask_bbox": [
+          257,
+          419,
+          497,
+          518
+        ],
+        "classifier_building_score": 0.125924,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          133.35,
+          787.42,
+          442.13,
+          926.35
+        ],
+        "detector_score": 0.020218,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.755445,
+        "mask_area_pixels": 21393,
+        "mask_area_ratio": 0.01275659,
+        "mask_bbox": [
+          128,
+          791,
+          450,
+          907
+        ],
+        "classifier_building_score": 0.999998,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          646.97,
+          639.87,
+          870.07,
+          818.35
+        ],
+        "detector_score": 0.019424,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.660926,
+        "mask_area_pixels": 14771,
+        "mask_area_ratio": 0.00880791,
+        "mask_bbox": [
+          643,
+          713,
+          895,
+          841
+        ],
+        "classifier_building_score": 0.999916,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          435.03,
+          698.69,
+          744.32,
+          829.5
+        ],
+        "detector_score": 0.017044,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.806389,
+        "mask_area_pixels": 17889,
+        "mask_area_ratio": 0.01066716,
+        "mask_bbox": [
+          438,
+          694,
+          738,
+          838
+        ],
+        "classifier_building_score": 0.052601,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          681.45,
+          685.51,
+          1047.53,
+          999.87
+        ],
+        "detector_score": 0.012672,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.616314,
+        "mask_area_pixels": 57975,
+        "mask_area_ratio": 0.03457033,
+        "mask_bbox": [
+          652,
+          717,
+          1069,
+          999
+        ],
+        "classifier_building_score": 1.0,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      },
+      {
+        "bbox": [
+          618.58,
+          700.72,
+          1087.08,
+          895.42
+        ],
+        "detector_score": 0.010612,
+        "proposal_source": "full",
+        "sam_predicted_iou": 0.837217,
+        "mask_area_pixels": 48604,
+        "mask_area_ratio": 0.02898243,
+        "mask_bbox": [
+          636,
+          713,
+          1082,
+          898
+        ],
+        "classifier_building_score": 0.987604,
+        "classifier_decision": "building",
+        "rejection_reason": "local_proposal_not_needed_for_vlm_parent_decomposition"
+      }
+    ],
+    "mask_containment": [
+      {
+        "bbox": [
+          129.8,
+          736.44,
+          558.14,
+          900.52
+        ],
+        "detector_score": 0.5,
+        "proposal_source": "qwen3_vl_whole_building_grounding:full",
+        "sam_predicted_iou": 0.734747,
+        "mask_area_pixels": 32072,
+        "mask_area_ratio": 0.01912444,
+        "mask_bbox": [
+          128,
+          735,
+          553,
+          902
+        ],
+        "classifier_building_score": 0.994333,
+        "classifier_decision": "building",
+        "rejection_reason": "mask_duplicate_of_higher_quality_building",
+        "contained_fraction": 0.73399,
+        "duplicate_of_candidate_bbox": [
+          128.03,
+          682.85,
+          428.25,
+          887.66
+        ],
+        "model_agreement_score": 0.36529159
+      },
+      {
+        "bbox": [
+          0.0,
+          680.88,
+          430.94,
+          823.0
+        ],
+        "detector_score": 0.5,
+        "proposal_source": "qwen3_vl_whole_building_grounding:full",
+        "sam_predicted_iou": 0.921217,
+        "mask_area_pixels": 28393,
+        "mask_area_ratio": 0.01693067,
+        "mask_bbox": [
+          0,
+          690,
+          430,
+          841
+        ],
+        "classifier_building_score": 0.224726,
+        "classifier_decision": "building",
+        "rejection_reason": "mask_duplicate_of_higher_quality_building",
+        "contained_fraction": 0.687006,
+        "duplicate_of_candidate_bbox": [
+          128.03,
+          682.85,
+          428.25,
+          887.66
+        ],
+        "model_agreement_score": 0.10351071
+      }
+    ]
+  },
+  "release_export": {
+    "original_sha256": "27a6f3fd409941b44217e595951c202ba0354e881250b49a795787185f5a05de",
+    "paths_sanitized": true,
+    "note": "Historical model output, not fresh inference. Archive paths are provenance labels, not included files."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ancient Painting Coarse Scene",
+  "type": "object",
+  "required": ["camera", "houses", "mountains", "waters", "trees", "occlusion_relations"],
+  "properties": {
+    "camera": {
+      "type": "object",
+      "required": ["projection", "azimuth_deg", "pitch_deg", "roll_deg", "ortho_scale"],
+      "properties": {
+        "projection": {"const": "orthographic"},
+        "azimuth_deg": {"type": "number"},
+        "pitch_deg": {"type": "number"},
+        "roll_deg": {"const": 0},
+        "ortho_scale": {"type": "number", "exclusiveMinimum": 0},
+        "image_offset": {
+          "type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2
+        }
+      }
+    },
+    "houses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "center", "length", "depth", "height", "yaw_deg", "visible_faces"],
+        "properties": {
+          "id": {"type": "string"},
+          "center": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+          "length": {"type": "number", "exclusiveMinimum": 0},
+          "depth": {"type": "number", "exclusiveMinimum": 0},
+          "height": {"type": "number", "exclusiveMinimum": 0},
+          "yaw_deg": {"type": "number"},
+          "dimensions_locked": {"type": "boolean"},
+          "visible_faces": {
+            "type": "array",
+            "items": {"enum": ["front", "back", "left", "right", "top"]}
+          },
+          "evidence": {"type": "object"}
+        }
+      }
+    },
+    "mountains": {"type": "array", "items": {"type": "object"}},
+    "waters": {"type": "array", "items": {"type": "object"}},
+    "trees": {"type": "array", "items": {"type": "object"}},
+    "occlusion_relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["front_id", "behind_id"],
+        "properties": {
+          "front_id": {"type": "string"},
+          "behind_id": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    }
+  }
+}

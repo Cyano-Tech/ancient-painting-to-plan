@@ -1,0 +1,494 @@
+{
+  "image": "archive/legacy/inputs/scene_03_hillside_hamlet.png",
+  "image_size": [
+    1294,
+    1286
+  ],
+  "stage": "automatic_whole_building_instance_parsing",
+  "models": {
+    "proposal_detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+    "semantic_proposal_models": [
+      "Qwen/Qwen3-VL-8B-Instruct"
+    ],
+    "proposal_classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+    "visible_region_segmenter": "facebook/sam2.1-hiera-small"
+  },
+  "settings": {
+    "detector": "archive/legacy/runs/detect/runs/building/yolo11m_refine_400w/weights/best.pt",
+    "classifier": "archive/legacy/runs/classify/runs/building/proposal_classifier_400w/weights/best.pt",
+    "sam_model": "facebook/sam2.1-hiera-small",
+    "semantic_proposal_models": [
+      "Qwen/Qwen3-VL-8B-Instruct"
+    ],
+    "device": "cuda:1",
+    "detector_confidence": 0.03,
+    "classifier_confidence": 0.02,
+    "box_nms_iou": 0.25,
+    "mask_containment": 0.6,
+    "box_containment": 0.68,
+    "sam_confidence": 0.4,
+    "small_fragment_area_ratio": 0.006,
+    "small_fragment_fill_ratio": 0.35,
+    "awning_aspect_ratio": 2.7,
+    "awning_fill_ratio": 0.5,
+    "parent_child_containment": 0.74,
+    "split_child_confidence": 0.85,
+    "split_child_max_iou": 0.32,
+    "split_child_min_separation": 0.18,
+    "split_child_max_area_fraction": 0.82,
+    "split_child_combined_area": 0.65,
+    "image_size": 1280,
+    "raw_proposals": 2,
+    "proposals_with_context_variants": 2,
+    "whole_building_context_variants": false,
+    "proposal_caches": [
+      "archive/legacy/whole_building_grounding/scene_03_hillside_hamlet_whole_buildings.json",
+      "archive/legacy/automatic_proposals_v2/scene_03_hillside_hamlet_yolo.json"
+    ]
+  },
+  "count": 2,
+  "instances": [
+    {
+      "bbox": [
+        766.0,
+        783.98,
+        1047.6,
+        874.0
+      ],
+      "detector_score": 0.01,
+      "proposal_source": "qwen3_vl_whole_building_grounding:tile_r0_c1",
+      "sam_predicted_iou": 0.798401,
+      "mask_area_pixels": 15570,
+      "mask_area_ratio": 0.0093565,
+      "mask_bbox": [
+        752,
+        784,
+        1042,
+        875
+      ],
+      "classifier_building_score": 0.025347,
+      "classifier_decision": "building",
+      "id": "House_01",
+      "model_agreement_score": 0.00020237,
+      "mask_fill_ratio": 0.589996,
+      "mask_aspect_ratio": 3.186813,
+      "visible_region_polygons": [
+        [
+          [
+            752,
+            827
+          ],
+          [
+            755,
+            833
+          ],
+          [
+            765,
+            838
+          ],
+          [
+            774,
+            833
+          ],
+          [
+            785,
+            835
+          ],
+          [
+            782,
+            841
+          ],
+          [
+            785,
+            842
+          ],
+          [
+            792,
+            838
+          ],
+          [
+            795,
+            841
+          ],
+          [
+            790,
+            851
+          ],
+          [
+            801,
+            852
+          ],
+          [
+            803,
+            858
+          ],
+          [
+            825,
+            838
+          ],
+          [
+            840,
+            834
+          ],
+          [
+            861,
+            838
+          ],
+          [
+            869,
+            834
+          ],
+          [
+            909,
+            838
+          ],
+          [
+            954,
+            874
+          ],
+          [
+            965,
+            871
+          ],
+          [
+            960,
+            867
+          ],
+          [
+            962,
+            864
+          ],
+          [
+            978,
+            866
+          ],
+          [
+            982,
+            858
+          ],
+          [
+            1001,
+            847
+          ],
+          [
+            998,
+            840
+          ],
+          [
+            1002,
+            834
+          ],
+          [
+            1014,
+            838
+          ],
+          [
+            1037,
+            827
+          ],
+          [
+            1040,
+            823
+          ],
+          [
+            1041,
+            799
+          ],
+          [
+            1028,
+            784
+          ],
+          [
+            985,
+            790
+          ],
+          [
+            957,
+            785
+          ],
+          [
+            927,
+            792
+          ],
+          [
+            897,
+            785
+          ],
+          [
+            855,
+            784
+          ],
+          [
+            831,
+            789
+          ],
+          [
+            826,
+            785
+          ],
+          [
+            822,
+            788
+          ],
+          [
+            816,
+            785
+          ],
+          [
+            801,
+            799
+          ],
+          [
+            792,
+            802
+          ],
+          [
+            784,
+            799
+          ],
+          [
+            765,
+            805
+          ]
+        ]
+      ]
+    },
+    {
+      "bbox": [
+        559.01,
+        868.05,
+        881.21,
+        1066.09
+      ],
+      "detector_score": 0.01,
+      "proposal_source": "qwen3_vl_whole_building_grounding:full",
+      "sam_predicted_iou": 0.873724,
+      "mask_area_pixels": 29537,
+      "mask_area_ratio": 0.0177497,
+      "mask_bbox": [
+        560,
+        869,
+        881,
+        1068
+      ],
+      "classifier_building_score": 0.99505,
+      "classifier_decision": "building",
+      "id": "House_02",
+      "model_agreement_score": 0.00869399,
+      "mask_fill_ratio": 0.46239,
+      "mask_aspect_ratio": 1.613065,
+      "visible_region_polygons": [
+        [
+          [
+            879,
+            908
+          ],
+          [
+            845,
+            876
+          ],
+          [
+            781,
+            869
+          ],
+          [
+            761,
+            880
+          ],
+          [
+            732,
+            876
+          ],
+          [
+            604,
+            889
+          ],
+          [
+            562,
+            946
+          ],
+          [
+            560,
+            957
+          ],
+          [
+            570,
+            959
+          ],
+          [
+            575,
+            970
+          ],
+          [
+            574,
+            1016
+          ],
+          [
+            579,
+            1023
+          ],
+          [
+            582,
+            958
+          ],
+          [
+            594,
+            953
+          ],
+          [
+            611,
+            970
+          ],
+          [
+            614,
+            1044
+          ],
+          [
+            640,
+            1063
+          ],
+          [
+            645,
+            1047
+          ],
+          [
+            631,
+            1032
+          ],
+          [
+            634,
+            992
+          ],
+          [
+            648,
+            1012
+          ],
+          [
+            664,
+            1019
+          ],
+          [
+            641,
+            986
+          ],
+          [
+            670,
+            993
+          ],
+          [
+            691,
+            986
+          ],
+          [
+            695,
+            966
+          ],
+          [
+            679,
+            962
+          ],
+          [
+            678,
+            955
+          ],
+          [
+            690,
+            960
+          ],
+          [
+            700,
+            949
+          ],
+          [
+            719,
+            949
+          ],
+          [
+            723,
+            987
+          ],
+          [
+            751,
+            981
+          ],
+          [
+            756,
+            950
+          ],
+          [
+            765,
+            946
+          ],
+          [
+            775,
+            952
+          ],
+          [
+            772,
+            1007
+          ],
+          [
+            778,
+            1021
+          ],
+          [
+            769,
+            1033
+          ],
+          [
+            769,
+            1053
+          ],
+          [
+            790,
+            1066
+          ],
+          [
+            796,
+            1053
+          ],
+          [
+            786,
+            1042
+          ],
+          [
+            793,
+            947
+          ],
+          [
+            819,
+            945
+          ],
+          [
+            821,
+            1001
+          ],
+          [
+            832,
+            1010
+          ],
+          [
+            836,
+            941
+          ],
+          [
+            874,
+            920
+          ]
+        ]
+      ]
+    }
+  ],
+  "rejected": {
+    "sam_quality": [],
+    "whole_building_structure": [],
+    "classifier": [],
+    "merged_vlm_parent": [],
+    "mask_containment": []
+  },
+  "release_export": {
+    "original_sha256": "eaf9a083b4a52da64d03f281277774c2980ecd34fd077564009eaa7af750e0ea",
+    "paths_sanitized": true,
+    "note": "Historical model output, not fresh inference. Archive paths are provenance labels, not included files."
+  }
+}

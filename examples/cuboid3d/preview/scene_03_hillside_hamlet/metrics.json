@@ -1,0 +1,40 @@
+{
+  "scene_id": "scene_03_hillside_hamlet",
+  "parsing_gate": {
+    "passed": true,
+    "source": "automatic_detector_classifier_sam_plus_independent_vlm_orientation",
+    "geometry_observations_source": "automatic_mask_bbox_plus_second_pass_vlm_direction",
+    "whole_house_instances": 2,
+    "automatic_detected_instances": 2,
+    "automatic_oriented_instances": 2,
+    "compound_split": true,
+    "face_visibility_rules_passed": true
+  },
+  "geometry_gate": {
+    "passed": true,
+    "raw_to_cuboid_regularization_silhouette_change_ratio": 0.103254,
+    "raw_to_final_constraint_solved_silhouette_change_ratio": 0.14918,
+    "length_greater_than_depth_all_houses": true
+  },
+  "fit": {
+    "interpretation": "self_consistency_only_same_geometry_renderer",
+    "source_image_accuracy_measured": false,
+    "house_semantic_silhouette_iou": 1.0,
+    "per_house_and_face_accuracy": null
+  },
+  "hard_constraints": {
+    "count": 0,
+    "items": []
+  },
+  "camera": {
+    "projection": "orthographic",
+    "roll_deg": 0
+  },
+  "top_view": {
+    "projection": "orthographic",
+    "camera_elevation_degrees": 90,
+    "painting_left_maps_left": true,
+    "painting_far_maps_top": true
+  },
+  "accepted": true
+}

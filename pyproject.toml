@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ancient-painting-to-plan"
+version = "0.1.0"
+description = "Two experimental routes from historical landscape paintings to relative ground layouts"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["Pillow>=11.3,<13", "jsonschema>=4.23,<5"]
+
+[project.urls]
+Repository = "https://github.com/Cyano-Tech/ancient-painting-to-plan"
+Documentation = "https://github.com/Cyano-Tech/ancient-painting-to-plan/tree/main/docs"
+
+[project.optional-dependencies]
+render = ["CairoSVG>=2.8,<3"]
+dev = ["pytest>=8.4,<10", "ruff==0.12.12", "build>=1.2,<2"]
+
+[project.scripts]
+ancient3d-replay = "ancientplan.cuboid3d.pipeline:main"
+ancient3d-validate = "ancientplan.cuboid3d.validate_outputs:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"ancientplan.cuboid3d" = ["contracts/*.json"]
+"ancientplan.foundation2d" = ["prompts/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

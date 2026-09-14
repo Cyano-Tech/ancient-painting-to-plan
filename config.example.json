@@ -1,0 +1,111 @@
+{
+  "provider": "user_configured_openai_compatible",
+  "base_url": "",
+  "model": "qwen3.8-max",
+  "api_key_file": "~/.config/ancientplan/dashscope.env",
+  "cloud_only": true,
+  "local_model_fallback": false,
+  "request_timeout_seconds": 480,
+  "automatic_retries": 0,
+  "plan_terrain": {
+    "json_mode": true,
+    "max_image_edge": 3000,
+    "max_tokens": 15000,
+    "enable_thinking": true,
+    "thinking_budget": 3072
+  },
+  "plan_buildings": {
+    "json_mode": true,
+    "max_image_edge": 2600,
+    "max_tokens": 12000,
+    "enable_thinking": true,
+    "thinking_budget": 2048
+  },
+  "plan_layout": {
+    "json_mode": true,
+    "max_image_edge": 3000,
+    "max_tokens": 19000,
+    "enable_thinking": true,
+    "thinking_budget": 3072
+  },
+  "plan_critique": {
+    "json_mode": true,
+    "max_image_edge": 3000,
+    "max_tokens": 18000,
+    "enable_thinking": true,
+    "thinking_budget": 3072
+  },
+  "plan_details": {
+    "json_mode": true,
+    "max_image_edge": 2200,
+    "max_tokens": 9000,
+    "enable_thinking": true,
+    "thinking_budget": 2048
+  },
+  "plan_accounting": {
+    "json_mode": true,
+    "max_image_edge": 1200,
+    "max_tokens": 3000,
+    "enable_thinking": false
+  },
+  "plan_final_check": {
+    "json_mode": true,
+    "max_image_edge": 3000,
+    "max_tokens": 5000,
+    "enable_thinking": true,
+    "thinking_budget": 1536
+  },
+  "smoke": {
+    "max_image_edge": 1024,
+    "max_tokens": 700,
+    "enable_thinking": false
+  },
+  "inventory": {
+    "max_image_edge": 2048,
+    "max_tokens": 7000,
+    "enable_thinking": true,
+    "thinking_budget": 1024
+  },
+  "review": {
+    "json_mode": true,
+    "max_image_edge": 2400,
+    "max_tokens": 10000,
+    "enable_thinking": true,
+    "thinking_budget": 1536
+  },
+  "structure": {
+    "json_mode": true,
+    "max_image_edge": 2400,
+    "max_tokens": 14000,
+    "enable_thinking": true,
+    "thinking_budget": 1536
+  },
+  "audit": {
+    "json_mode": true,
+    "max_image_edge": 2400,
+    "max_tokens": 5000,
+    "enable_thinking": true,
+    "thinking_budget": 1024
+  },
+  "landmarks": {
+    "json_mode": true,
+    "max_image_edge": 2400,
+    "max_tokens": 8000,
+    "enable_thinking": true,
+    "thinking_budget": 3072
+  },
+  "ground_hypotheses": {
+    "json_mode": true,
+    "max_image_edge": 2400,
+    "max_tokens": 7000,
+    "enable_thinking": true,
+    "thinking_budget": 3072
+  },
+  "ground_check": {
+    "json_mode": true,
+    "max_image_edge": 2400,
+    "max_tokens": 6000,
+    "enable_thinking": true,
+    "thinking_budget": 2048
+  }
+}

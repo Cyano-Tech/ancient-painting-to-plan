@@ -1,0 +1,28 @@
+{
+  "per_scene_required_files": [
+    "original.png",
+    "instances.png",
+    "raw_semantic.png",
+    "raw_semantic.json",
+    "geometry_consistent_semantic.png",
+    "geometry_consistent_semantic.json",
+    "original_view_semantic_render.png",
+    "original_view_normal_render.png",
+    "top_view.png",
+    "perspective_debug.png",
+    "scene.glb",
+    "scene.json",
+    "metrics.json",
+    "comparison_sheet.png"
+  ],
+  "batch_required_files": [
+    "all_scenes_comparison.png"
+  ],
+  "top_view": {
+    "projection": "orthographic",
+    "camera_elevation_degrees": 90,
+    "preserve_painting_left_right": true,
+    "painting_far_maps_to_top": true,
+    "painting_near_maps_to_bottom": true
+  }
+}
